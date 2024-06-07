@@ -2,4 +2,4 @@
 **以后可能会有一些有意思的东西**
 ***
 
-![image](https://pica.zhimg.com/70/v2-87b0e317a05cdf3bd85f73d36f2c3a47_1440w.avis?source=172ae18b&biz_tag=Post)
+![image](https://github.com/YangGuanyuhan/YangGuanyuhan.github.io/blob/main/%E7%94%B3%E9%B9%A4%E5%A7%90%E5%A7%90.jpg)
