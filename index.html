@@ -5,59 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>杨官宇涵的个人网页</title>
     <style>
+        /* 设置整体页面样式 */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(to right, #83a4d4, #b6fbff); /* 渐变背景色 */
             color: #333;
         }
+
+        /* 头部样式 */
         header {
             background-color: #4CAF50;
             color: white;
             text-align: center;
             padding: 1em 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 头部阴影 */
+            position: sticky; /* 粘性头部 */
+            top: 0;
+            z-index: 1000;
         }
+
+        /* 容器样式 */
         .container {
             width: 80%;
-            margin: auto;
+            max-width: 1200px;
+            margin: 20px auto;
             overflow: hidden;
+            background-color: white; /* 白色背景 */
+            border-radius: 10px; /* 圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 容器阴影 */
+            padding: 20px;
         }
+
+        /* 主体样式 */
         .main {
             padding: 20px;
-            background: white;
             margin: 20px 0;
         }
+
+        /* 标题样式 */
         h1, h2 {
             color: #333;
+            font-family: 'Arial Black', Gadget, sans-serif;
         }
+
+        /* 段落样式 */
         p {
-            line-height: 1.6;
+            line-height: 1.8;
+            margin-bottom: 1.5em;
         }
+
+        /* 节标题样式 */
         .section-title {
-            border-bottom: 2px solid #4CAF50;
+            border-bottom: 3px solid #4CAF50;
             display: inline-block;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
+            margin-bottom: 15px;
+            padding-bottom: 7px;
+            font-size: 1.5em;
         }
+
+        /* 技能项目样式 */
         .project {
             margin-bottom: 20px;
         }
+
+        /* 页脚样式 */
         footer {
             text-align: center;
             padding: 10px 0;
             background-color: #333;
             color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
+
+        /* 联系信息样式 */
         .contact-info {
             margin-top: 20px;
         }
+
+        /* 链接样式 */
         a {
             color: #4CAF50;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
+
+        /* 链接悬停效果 */
         a:hover {
             text-decoration: underline;
+            color: #00796b;
+        }
+
+        /* 列表样式 */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        /* 列表项样式 */
+        ul li {
+            background: #f4f4f4;
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            transition: background 0.3s ease;
+        }
+
+        /* 列表项悬停效果 */
+        ul li:hover {
+            background: #e0f7fa;
         }
     </style>
 </head>
@@ -89,9 +148,8 @@
             </ul>
         </div>
         <div class="main contact-info">
-            <h2 class="section-title"></h2>
-           <p>GitHub：<a href="https://github.com/YangGuanyuhan">点击这里访问我的 GitHub</a></p>
-
+            <h2 class="section-title">联系信息</h2>
+            <p>GitHub：<a href="https://github.com/YangGuanyuhan" target="_blank">点击这里访问我的 GitHub</a></p>
         </div>
     </div>
     <footer>
