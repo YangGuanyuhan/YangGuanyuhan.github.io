@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<!-- 默认语言为中文 -->
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 动态标题 -->
-    <title>
-        <span class="lang-zh">杨官宇涵的个人主页</span>
-        <span class="lang-en">Personal Homepage of Guanyuhan Yang</span>
-    </title>
+    <title>杨官宇涵的个人主页</title>
+    <!-- 引入一个图标库(Font Awesome)来增强视觉效果 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto:wght@400;700&display=swap');
 
         /* --- 整体与根元素样式 --- */
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --background-color: #f5f7fa;
+            --primary-color: #3498db;  /* 主题蓝 */
+            --secondary-color: #2c3e50; /* 深蓝灰色 */
+            --background-color: #f5f7fa; /* 页面背景色 */
             --text-color: #333;
             --light-text-color: #7f8c8d;
             --card-bg-color: #ffffff;
@@ -25,7 +21,7 @@
         }
 
         body {
-            font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+            font-family: 'Noto Sans SC', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--background-color);
@@ -33,198 +29,327 @@
             line-height: 1.7;
         }
 
-        /* --- 语言切换逻辑 --- */
-        html[lang="zh-CN"] .lang-en { display: none; }
-        html[lang="en"] .lang-zh { display: none; }
-
-        /* --- 语言切换按钮 --- */
-        #lang-switcher {
-            position: fixed; top: 20px; right: 20px; z-index: 2000;
-            background-color: var(--primary-color); color: white; border: none;
-            padding: 10px 18px; border-radius: 25px; cursor: pointer; font-weight: 500;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        #lang-switcher:hover { background-color: var(--secondary-color); transform: scale(1.05); }
-
         /* --- 头部区域 --- */
         header.hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white; padding: 60px 20px; text-align: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
         }
 
-        /* --- 个人头像样式 --- */
-        .profile-picture {
-            width: 150px; height: 150px; border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            object-fit: cover; margin-bottom: 20px;
+        header .profile-name {
+            margin: 0;
+            font-size: 3.5em;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        header .profile-intro {
+            font-size: 1.2em;
+            margin: 10px 0 30px;
+            font-weight: 300;
+        }
+        
+        .contact-icons a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.5em;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
-        header .profile-name { margin: 0; font-size: 3.2em; font-weight: 700; }
-        header .profile-intro { font-size: 1.2em; margin: 10px 0 30px; font-weight: 300; }
-        .contact-icons a { color: white; margin: 0 15px; font-size: 1.5em; }
+        .contact-icons a:hover {
+            transform: scale(1.2);
+            color: #ecf0f1;
+        }
 
         /* --- 内容容器与卡片 --- */
         .container {
-            width: 85%; max-width: 1100px; margin: -50px auto 50px auto;
-            position: relative; z-index: 10;
+            width: 85%;
+            max-width: 1100px;
+            margin: -50px auto 50px auto;
+            background: transparent;
+            position: relative;
+            z-index: 10;
         }
+        
         .section {
-            background-color: var(--card-bg-color); margin-bottom: 30px; padding: 40px;
-            border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            background-color: var(--card-bg-color);
+            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            border: 1px solid var(--border-color);
         }
-        .section-title { font-size: 2em; color: var(--secondary-color); margin-bottom: 30px; }
 
-        /* --- 项目卡片图片样式 --- */
-        .project-image {
-            width: 100%; height: 180px; object-fit: cover; display: block;
+        /* --- 标题样式 --- */
+        .section-title {
+            font-size: 2em;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
         }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* --- 特定区域样式 --- */
+        
+        /* 教育与获奖 */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .info-card h3 {
+            margin: 0 0 10px 0;
+            color: var(--secondary-color);
+        }
+
+        .info-card p {
+            margin: 0;
+            color: var(--light-text-color);
+            font-size: 0.95em;
+        }
+
+        /* 技能栈 */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .skill-tag {
+            background-color: #ecf0f1;
+            color: #34495e;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .skill-category {
+            margin-top: 20px;
+            font-weight: 700;
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+
+
+        /* 项目经验 */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
         .project-card {
-            border: 1px solid var(--border-color); border-radius: 10px;
-            overflow: hidden; /* 确保圆角能裁剪图片 */
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        .project-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1); }
-        .project-card-header { background: var(--secondary-color); color: white; padding: 15px 20px; font-size: 1.2em; }
-        .project-card-body { padding: 20px; font-size: 0.95em; }
-        .project-link { display: inline-block; margin-top: 15px; color: var(--primary-color); text-decoration: none; }
         
-        /* ... 其他无改动的CSS ... */
-        .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .info-card { background: #f9fafb; padding: 20px; border-radius: 8px; border-left: 5px solid var(--primary-color); }
-        .info-card h3 { margin: 0 0 10px 0; color: var(--secondary-color); }
-        .info-card p { margin: 0; color: var(--light-text-color); font-size: 0.95em; }
-        .skills-container { display: flex; flex-wrap: wrap; gap: 12px; }
-        .skill-tag { background-color: #ecf0f1; color: #34495e; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; font-weight: 500; }
-        .skill-category { margin-top: 20px; font-weight: 700; font-size: 1.1em; }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        footer { text-align: center; padding: 25px 0; background-color: var(--secondary-color); color: #bdc3c7; }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+        }
 
+        .project-card-header {
+            background: var(--secondary-color);
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .project-card-body {
+            padding: 20px;
+            font-size: 0.95em;
+        }
+        
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 兴趣爱好 */
+        .interests-list i {
+            width: 25px;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            background-color: var(--secondary-color);
+            color: #bdc3c7;
+        }
     </style>
 </head>
 <body>
-    
-    <button id="lang-switcher">English</button>
 
+    <!-- 头部区域 -->
     <header class="hero">
-        <!-- 个人头像图片 -->
-        <img src="images/profile.jpg" alt="杨官宇涵的头像 / Profile picture of Guanyuhan Yang" class="profile-picture">
-
-        <h1 class="profile-name">
-            <span class="lang-zh">杨官宇涵 (Guanyuhan Yang)</span>
-            <span class="lang-en">Guanyuhan Yang (杨官宇涵)</span>
-        </h1>
-        <p class="profile-intro">
-            <span class="lang-zh">南方科技大学 | 计算机科学 | 大二本科生</span>
-            <span class="lang-en">SUSTech | Computer Science | Sophomore</span>
-        </p>
+        <h1 class="profile-name">杨官宇涵 (Guanyuhan Yang)</h1>
+        <p class="profile-intro">南方科技大学 | 计算机科学 | 大二本科生</p>
         <div class="contact-icons">
-            <a href="mailto:yanggyh2023@mail.sustech.edu.cn" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/YangGuanyuhan" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:yanggyh2023@mail.sustech.edu.cn" title="yanggyh2023@mail.sustech.edu.cn"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+8618387311225" title="+86 183 8731 1225"><i class="fas fa-phone"></i></a>
+            <a href="https://github.com/YangGuanyuhan" target="_blank" title="GitHub Profile"><i class="fab fa-github"></i></a>
         </div>
     </header>
 
+    <!-- 主内容容器 -->
     <div class="container">
     
         <!-- 关于我 -->
         <div class="section">
-            <h2 class="section-title">
-                <span class="lang-zh">关于我</span><span class="lang-en">About Me</span>
-            </h2>
-            <p><strong class="lang-zh">院系：</strong><span class="lang-zh">致诚书院 | 大二本科生</span><strong class="lang-en">College:</strong><span class="lang-en"> Zhicheng College | Sophomore</span></p>
-            <p class="lang-zh">我对计算机科学充满热情，尤其在人工智能、机器学习和计算机视觉领域有浓厚兴趣。我享受通过编程解决挑战性难题的过程，并具备优秀的团队协作、问题解决和快速学习能力。</p>
-            <p class="lang-en">I am passionate about computer science, with a keen interest in Artificial Intelligence and Computer Vision. I enjoy solving challenging problems through programming and possess excellent skills in teamwork, problem-solving, and quick learning.</p>
+            <h2 class="section-title">关于我 (About Me)</h2>
+            <p><strong>院系：</strong>致诚书院 | 大二本科生</p>
+            <p>我对计算机科学充满热情，尤其在人工智能、机器学习和计算机视觉领域有浓厚兴趣。我享受通过编程解决挑战性难题的过程，并具备优秀的团队协作、问题解决和快速学习能力。我致力于不断提升自我，探索技术的边界。</p>
         </div>
     
-        <!-- 教育与荣誉 -->
+        <!-- 教育背景与荣誉 -->
         <div class="section">
-             <h2 class="section-title"><span class="lang-zh">教育与荣誉</span><span class="lang-en">Education & Honors</span></h2>
-             <!-- 此部分无图片，保持不变 -->
+            <h2 class="section-title">教育与荣誉 (Education & Honors)</h2>
+            <div class="education-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-graduation-cap"></i> 教育背景</h3>
+                    <p><strong>学校:</strong> 南方科技大学 (SUSTech)</p>
+                    <p><strong>专业:</strong> 计算机科学与技术</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-chart-line"></i> 学业成绩 (GPA)</h3>
+                    <p><strong>总GPA:</strong> 3.76 / 4.0 (排名: 18/188)</p>
+                    <p><strong>大一学年GPA:</strong> 3.71 (排名: 29/186)</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-award"></i> 获奖信息</h3>
+                    <p><strong>2024年:</strong> 荣获2024年度优秀学生</p>
+                </div>
+            </div>
         </div>
-
+        
         <!-- 技能栈 -->
         <div class="section">
-            <h2 class="section-title"><span class="lang-zh">技能栈</span><span class="lang-en">Skills</span></h2>
-             <!-- 此部分无图片，保持不变 -->
+            <h2 class="section-title">技能栈 (Skills)</h2>
+            <p class="skill-category">编程语言 & 工具:</p>
+            <div class="skills-container">
+                <span class="skill-tag">Java (熟练)</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">C/C++</span>
+                <span class="skill-tag">JavaScript (学习中)</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">LaTeX</span>
+                <span class="skill-tag">Markdown</span>
+                <span class="skill-tag">Gradle</span>
+            </div>
+            <p class="skill-category">专业知识:</p>
+            <div class="skills-container">
+                <span class="skill-tag">面向对象编程</span>
+                <span class="skill-tag">数据结构与算法</span>
+                <span class="skill-tag">数据库原理 (PostgreSQL)</span>
+                <span class="skill-tag">计算机程序设计基础</span>
+                <span class="skill-tag">数字逻辑</span>
+                <span class="skill-tag">函数式与模块化编程思想</span>
+            </div>
         </div>
         
         <!-- 项目经验 -->
         <div class="section">
-            <h2 class="section-title">
-                <span class="lang-zh">项目经验</span><span class="lang-en">Projects</span>
-            </h2>
+            <h2 class="section-title">项目经验 (Projects)</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <!-- 项目1图片 -->
-                    <img src="images/project1.png" alt="2048 Game Screenshot" class="project-image">
-                    <div class="project-card-header"><span class="lang-zh">Java 2048 小游戏</span><span class="lang-en">2048 Game in Java</span></div>
+                    <div class="project-card-header">Java 2048 小游戏</div>
                     <div class="project-card-body">
-                        <span class="lang-zh">使用Java语言独立开发的一款经典的2048小程序。</span><span class="lang-en">Developed a classic 2048 mini-game using Java.</span>
-                        <a href="#" class="project-link"><span class="lang-zh">查看项目</span><span class="lang-en">View Project</span> &rarr;</a>
+                        使用Java语言开发的一款经典的2048小程序。
+                        <a href="#" class="project-link">查看项目 &rarr;</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <!-- 项目2图片 -->
-                    <img src="images/project2.png" alt="Article Management System Screenshot" class="project-image">
-                    <div class="project-card-header"><span class="lang-zh">文章管理系统</span><span class="lang-en">Article Management System</span></div>
+                    <div class="project-card-header">文章管理系统</div>
                     <div class="project-card-body">
-                        <span class="lang-zh">使用PostgreSQL数据库及Gradle框架进行构建、测试与部署。</span><span class="lang-en">Built an article management system using PostgreSQL and the Gradle framework.</span>
-                        <a href="#" class="project-link"><span class="lang-zh">查看项目</span><span class="lang-en">View Project</span> &rarr;</a>
+                        使用PostgreSQL作为数据库，通过Gradle框架进行构建、测试与部署。
+                        <a href="#" class="project-link">查看项目 &rarr;</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <!-- 项目3图片 -->
-                    <img src="images/project3.png" alt="Range Hood Circuit Diagram" class="project-image">
-                    <div class="project-card-header"><span class="lang-zh">抽油烟机电路控制</span><span class="lang-en">Range Hood Circuit Control</span></div>
+                    <div class="project-card-header">抽油烟机电路控制</div>
                     <div class="project-card-body">
-                        <span class="lang-zh">利用FPGA技术，完成抽油烟机的电路控制逻辑设计。</span><span class="lang-en">Designed a circuit to control a range hood using FPGA technology.</span>
-                        <a href="#" class="project-link"><span class="lang-zh">查看项目</span><span class="lang-en">View Project</span> &rarr;</a>
+                        利用FPGA（现场可编程门阵列）技术，完成抽油烟机的电路控制逻辑设计。
+                        <a href="#" class="project-link">查看项目 &rarr;</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <!-- 项目4图片 -->
-                    <img src="images/project4.png" alt="BMP Image Processing Example" class="project-image">
-                    <div class="project-card-header"><span class="lang-zh">BMP 图像处理</span><span class="lang-en">BMP Image Processing</span></div>
+                    <div class="project-card-header">BMP 图像处理</div>
                     <div class="project-card-body">
-                        <span class="lang-zh">使用C语言完成，支持基本图像操作，并采用SIMD和多线程加速。</span><span class="lang-en">Implemented BMP image processing in C, accelerated with SIMD and multithreading.</span>
-                        <a href="#" class="project-link"><span class="lang-zh">查看项目</span><span class="lang-en">View Project</span> &rarr;</a>
+                        使用C语言完成，支持对BMP图像的基本操作，并采用SIMD和多线程技术加速处理。
+                        <a href="#" class="project-link">查看项目 &rarr;</a>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- 兴趣与规划 -->
+        <!-- 个人兴趣与未来规划 -->
         <div class="section">
-             <h2 class="section-title"><span class="lang-zh">兴趣与规划</span><span class="lang-en">Interests & Plans</span></h2>
-              <!-- 此部分无图片，保持不变 -->
+             <h2 class="section-title">兴趣与规划 (Interests & Plans)</h2>
+             <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div style="flex: 1; min-width: 280px;">
+                    <h3><i class="fas fa-heart" style="color: var(--primary-color);"></i> 个人兴趣</h3>
+                    <ul class="interests-list" style="list-style-type: none; padding: 0;">
+                        <li><i class="fas fa-book-open"></i> 阅读科技书籍</li>
+                        <li><i class="fas fa-laptop-code"></i> 热爱编程与技术挑战</li>
+                        <li><i class="fas fa-first-aid"></i> 关注医学领域</li>
+                        <li><i class="fas fa-camera-retro"></i> 旅游与摄影</li>
+                        <li><i class="fas fa-water"></i> 潜水冒险</li>
+                    </ul>
+                </div>
+                <div style="flex: 1.5; min-width: 300px;">
+                    <h3><i class="fas fa-rocket" style="color: var(--primary-color);"></i> 未来规划</h3>
+                    <p>深入学习计算机视觉与人工智能，特别是深度学习和神经网络相关技术。希望未来能参与更多AI方向的前沿项目，并计划出国深造或在本校保研，继续在学术道路上探索。</p>
+                </div>
+             </div>
         </div>
+        
     </div>
 
+    <!-- 页脚 -->
     <footer>
-        <p>&copy; 2024 Guanyuhan Yang - All Rights Reserved</p>
+        <p>&copy; 2024 杨官宇涵 (Guanyuhan Yang) - All Rights Reserved</p>
     </footer>
 
-    <!-- JavaScript 脚本 -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const langSwitcher = document.getElementById('lang-switcher');
-            const htmlEl = document.documentElement;
-            const titleEl = document.querySelector('title');
-            
-            const updateText = (lang) => {
-                htmlEl.lang = lang;
-                langSwitcher.textContent = (lang === 'zh-CN') ? 'English' : '中文';
-                const titleSpan = titleEl.querySelector(`.lang-${(lang === 'zh-CN' ? 'zh' : 'en')}`);
-                if (titleSpan) document.title = titleSpan.textContent;
-            };
-
-            langSwitcher.addEventListener('click', () => {
-                const newLang = htmlEl.lang === 'zh-CN' ? 'en' : 'zh-CN';
-                updateText(newLang);
-            });
-            updateText(htmlEl.lang);
-        });
-    </script>
 </body>
-</html>```
+</html>
