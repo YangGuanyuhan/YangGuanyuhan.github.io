@@ -5,101 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>杨官宇涵的个人网页</title>
     <style>
-        /* 设置整体页面样式 */
+        /* Google Fonts for a more elegant typography - (Optional, but recommended) */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+        /* 整体页面样式 */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* 使用更柔和的字体 */
+            font-family: 'Poppins', 'Helvetica Neue', 'Arial', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #83a4d4, #b6fbff); /* 渐变背景色 */
-            color: #333;
+            /* 调整为更柔和专业的渐变背景 */
+            background-color: #f4f7f9;
+            color: #4A5568;
         }
 
         /* 头部样式 */
         header {
-            background-color: #2c3e50;
+            background-color: #2c3e50; /* 深蓝灰色调 */
             color: white;
             text-align: center;
-            padding: 1em 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 头部阴影 */
-            position: sticky; /* 粘性头部 */
-            top: 0;
-            z-index: 1000;
+            padding: 2em 0;
+            box-shadow: 0 4px 10px rgba(44, 62, 80, 0.15);
         }
-          header h1 {
-            color: white; /* 将头部的 h1 颜色设置为白色 */
+
+        header h1 {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2.5em;
+            letter-spacing: 2px;
         }
 
         /* 容器样式 */
         .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 20px auto;
-            overflow: hidden;
-            background-color: white; /* 白色背景 */
-            border-radius: 10px; /* 圆角 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 容器阴影 */
-            padding: 20px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* 调整阴影使其更柔和 */
+            padding: 40px;
+            box-sizing: border-box;
         }
 
-        /* 主体样式 */
+        /* 主体内容区域 */
         .main {
-            padding: 20px;
-            margin: 20px 0;
+            margin-bottom: 40px;
         }
 
-        /* 标题样式 */
-        h1, h2 {
-            color: #333;
-            font-family: 'Arial Black', Gadget, sans-serif;
+        /* 诗歌区域专属样式 */
+        .poem {
+            text-align: center;
+            margin: 40px auto;
+            padding: 30px;
+            background: #f8fafc;
+            border-left: 5px solid #63b3ed; /* 使用柔和的蓝色作为强调 */
+            border-radius: 8px;
+        }
+
+        .poem h2 {
+            font-family: 'Noto Serif SC', 'KaiTi', 'STKaiti', serif;
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .poem p {
+            font-family: 'Noto Serif SC', 'KaiTi', 'STKaiti', serif;
+            font-size: 1.2em;
+            line-height: 2.2; /* 增加行距以突出诗歌的韵律感 */
+            color: #4A5568;
+            margin: 0;
+        }
+
+        /* 统一节标题样式 */
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            color: #2D3748;
+            border-bottom: 3px solid #63b3ed; /* 蓝色调 */
+            display: inline-block;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            font-weight: 600;
         }
 
         /* 段落样式 */
         p {
             line-height: 1.8;
-            margin-bottom: 1.5em;
-        }
-
-        /* 节标题样式 */
-        .section-title {
-            border-bottom: 3px solid #4CAF50;
-            display: inline-block;
-            margin-bottom: 15px;
-            padding-bottom: 7px;
-            font-size: 1.5em;
-        }
-
-        /* 技能项目样式 */
-        .project {
-            margin-bottom: 20px;
-        }
-
-        /* 页脚样式 */
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* 联系信息样式 */
-        .contact-info {
-            margin-top: 20px;
-        }
-
-        /* 链接样式 */
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        /* 链接悬停效果 */
-        a:hover {
-            text-decoration: underline;
-            color: #00796b;
+            margin-bottom: 1em;
+            color: #4A5568; /* 更柔和的文本颜色 */
         }
 
         /* 列表样式 */
@@ -108,18 +104,49 @@
             padding: 0;
         }
         
-        /* 列表项样式 */
         ul li {
-            background: #f4f4f4;
-            margin: 10px 0;
-            padding: 10px;
-            border-left: 4px solid #4CAF50;
-            transition: background 0.3s ease;
+            background: #F7FAFC;
+            margin-bottom: 12px;
+            padding: 15px 20px;
+            border-left: 4px solid #63b3ed; /* 蓝色调 */
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            position: relative; /* 为动效做准备 */
+            left: 0;
         }
 
         /* 列表项悬停效果 */
         ul li:hover {
-            background: #e0f7fa;
+            background: #EBF8FF;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            left: -5px; /* 轻微左移突出显示 */
+        }
+
+        /* 联系信息 */
+        .contact-info {
+            margin-top: 30px;
+        }
+        
+        /* 链接样式 */
+        a {
+            color: #3182ce; /* 蓝色链接 */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2b6cb0; /* 悬停时颜色加深 */
+            text-decoration: underline;
+        }
+
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #2c3e50;
+            color: white;
+            font-size: 0.9em;
         }
     </style>
 </head>
@@ -127,35 +154,51 @@
     <header>
         <h1>杨官宇涵的个人网页</h1>
     </header>
+
     <div class="container">
         <div class="main">
             <h2 class="section-title">自我介绍</h2>
-            <p>学校：南方科技大学 SUSTech
+            <p><strong>学校：</strong>南方科技大学 SUSTech</p>
             <p>我一直对计算机科学有着浓厚的兴趣。为了更好地了解计算机领域，我参观了许多系的实验室，发现许多不同学科之间的研究都涉及到人工智能、机器学习和计算机视觉，这激发了我的热情。我通过阅读知乎上的相关文章、了解开源社区项目以及向学长请教，来不断加深对计算机科学的认识。我对选择计算机系是经过深思熟虑的，并非盲目跟风。</p>
         </div>
+
+        <!-- 新增的诗歌区域 -->
+        <div class="poem">
+            <h2>無題贈楊官宇涵</h2>
+            <p>
+                楊花飛雪點青苔，<br>
+                官窯墨玉待雲開。<br>
+                宇淨風恬千帆隱，<br>
+                涵虚秋水共潮來。
+            </p>
+        </div>
+        
         <div class="main">
             <h2 class="section-title">技术技能与知识</h2>
             <ul>
-                <li>编程能力：熟练掌握 Java，正在自学 Python。不仅能编写功能性代码，还能确保代码的可维护性和高效性。</li>
-                <li>开发工具和版本控制：能够使用 Git 等版本控制系统，以及常用的开发工具和 IDE。</li>
+                <li><strong>编程能力：</strong>熟练掌握 Java，正在自学 Python。不仅能编写功能性代码，还能确保代码的可维护性和高效性。</li>
+                <li><strong>开发工具和版本控制：</strong>能够使用 Git 等版本控制系统，以及常用的开发工具和 IDE。</li>
                 <!-- 添加更多技能 -->
             </ul>
         </div>
+
         <div class="main">
             <h2 class="section-title">软技能与综合素质</h2>
             <ul>
-                <li>主动性：积极面对问题，善于寻找解决办法，不自怨自艾。对自我有清晰的认知，能够准确评估自己的能力，发现并弥补不足。</li>
-                <li>团队合作与沟通：在团队项目中能很好地与他人合作，分工明确，沟通和协调能力强。</li>
-                <li>问题解决能力：具备分析和解决复杂问题的能力，能够提出有效的解决方案。善于批判性思维，寻找改进和优化的机会。</li>
-                <li>学习与适应能力：能够快速掌握新知识和新技术，适应不断变化的技术环境。持续学习和自我提升，积极参加培训、研讨会或自学新技能。</li>
+                <li><strong>主动性：</strong>积极面对问题，善于寻找解决办法，不自怨自艾。对自我有清晰的认知，能够准确评估自己的能力，发现并弥补不足。</li>
+                <li><strong>团队合作与沟通：</strong>在团队项目中能很好地与他人合作，分工明确，沟通和协调能力强。</li>
+                <li><strong>问题解决能力：</strong>具备分析和解决复杂问题的能力，能够提出有效的解决方案。善于批判性思维，寻找改进和优化的机会。</li>
+                <li><strong>学习与适应能力：</strong>能够快速掌握新知识和新技术，适应不断变化的技术环境。持续学习和自我提升，积极参加培训、研讨会或自学新技能。</li>
                 <!-- 添加更多软技能 -->
             </ul>
         </div>
+
         <div class="main contact-info">
             <h2 class="section-title">联系信息</h2>
-            <p>GitHub：<a href="https://github.com/YangGuanyuhan" target="_blank">点击这里访问我的 GitHub</a></p>
+            <p><strong>GitHub：</strong><a href="https://github.com/YangGuanyuhan" target="_blank">点击这里访问我的 GitHub</a></p>
         </div>
     </div>
+
     <footer>
         <p>&copy; 2024 杨官宇涵</p>
     </footer>
