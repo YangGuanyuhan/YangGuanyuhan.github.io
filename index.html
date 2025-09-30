@@ -39,112 +39,68 @@
 
         /* --- 语言切换按钮 --- */
         #lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 2000;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 500;
+            position: fixed; top: 20px; right: 20px; z-index: 2000;
+            background-color: var(--primary-color); color: white; border: none;
+            padding: 10px 18px; border-radius: 25px; cursor: pointer; font-weight: 500;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             transition: background-color 0.3s, transform 0.3s;
         }
-        #lang-switcher:hover {
-            background-color: var(--secondary-color);
-            transform: scale(1.05);
-        }
+        #lang-switcher:hover { background-color: var(--secondary-color); transform: scale(1.05); }
 
         /* --- 头部区域 --- */
         header.hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            /* 调整内边距以适应头像 */
-            padding: 60px 20px;
-            text-align: center;
+            color: white; padding: 60px 20px; text-align: center;
         }
-        
-        /* --- 新增：个人头像样式 --- */
+
+        /* --- 个人头像样式 --- */
         .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;  /* 这是让图片变圆的关键 */
-            border: 5px solid rgba(255, 255, 255, 0.8); /* 添加一个半透明的白色边框 */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 添加一点阴影使其突出 */
-            object-fit: cover; /* 防止图片因缩放而变形 */
-            margin-bottom: 20px; /* 在图片和名字之间增加一些间距 */
+            width: 150px; height: 150px; border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            object-fit: cover; margin-bottom: 20px;
         }
 
-        header .profile-name {
-            margin: 0;
-            font-size: 3.2em; /* 略微调整字体大小 */
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-        
-        header .profile-intro {
-            font-size: 1.2em;
-            margin: 10px 0 30px;
-            font-weight: 300;
-        }
-        
-        .contact-icons a {
-            color: white;
-            margin: 0 15px;
-            font-size: 1.5em;
-        }
+        header .profile-name { margin: 0; font-size: 3.2em; font-weight: 700; }
+        header .profile-intro { font-size: 1.2em; margin: 10px 0 30px; font-weight: 300; }
+        .contact-icons a { color: white; margin: 0 15px; font-size: 1.5em; }
 
-        /* --- 内容容器与卡片 (后续代码无改动) --- */
+        /* --- 内容容器与卡片 --- */
         .container {
-            width: 85%;
-            max-width: 1100px;
-            margin: -50px auto 50px auto;
-            position: relative;
-            z-index: 10;
+            width: 85%; max-width: 1100px; margin: -50px auto 50px auto;
+            position: relative; z-index: 10;
         }
-        
         .section {
-            background-color: var(--card-bg-color);
-            margin-bottom: 30px;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            background-color: var(--card-bg-color); margin-bottom: 30px; padding: 40px;
+            border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
         }
+        .section-title { font-size: 2em; color: var(--secondary-color); margin-bottom: 30px; }
 
-        .section-title {
-            font-size: 2em;
-            color: var(--secondary-color);
-            margin-bottom: 30px;
+        /* --- 项目卡片图片样式 --- */
+        .project-image {
+            width: 100%; height: 180px; object-fit: cover; display: block;
         }
-       
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        .project-card {
+            border: 1px solid var(--border-color); border-radius: 10px;
+            overflow: hidden; /* 确保圆角能裁剪图片 */
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .info-card {
-            background: #f9fafb;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 5px solid var(--primary-color);
-        }
-        .info-card h3 { margin: 0 0 10px 0; color: var(--secondary-color); }
-        .info-card p { margin: 0; color: var(--light-text-color); font-size: 0.95em; }
-
-        .skills-container { display: flex; flex-wrap: wrap; gap: 12px; }
-        .skill-tag { background-color: #ecf0f1; color: #34495e; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; font-weight: 500; }
-        .skill-category { margin-top: 20px; font-weight: 700; font-size: 1.1em; }
-
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .project-card { border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1); }
         .project-card-header { background: var(--secondary-color); color: white; padding: 15px 20px; font-size: 1.2em; }
         .project-card-body { padding: 20px; font-size: 0.95em; }
         .project-link { display: inline-block; margin-top: 15px; color: var(--primary-color); text-decoration: none; }
-
+        
+        /* ... 其他无改动的CSS ... */
+        .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .info-card { background: #f9fafb; padding: 20px; border-radius: 8px; border-left: 5px solid var(--primary-color); }
+        .info-card h3 { margin: 0 0 10px 0; color: var(--secondary-color); }
+        .info-card p { margin: 0; color: var(--light-text-color); font-size: 0.95em; }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 12px; }
+        .skill-tag { background-color: #ecf0f1; color: #34495e; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; font-weight: 500; }
+        .skill-category { margin-top: 20px; font-weight: 700; font-size: 1.1em; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         footer { text-align: center; padding: 25px 0; background-color: var(--secondary-color); color: #bdc3c7; }
+
     </style>
 </head>
 <body>
@@ -152,8 +108,8 @@
     <button id="lang-switcher">English</button>
 
     <header class="hero">
-        <!-- 新增的图片标签 -->
-        <img src="images/profile.jpg" alt="杨官宇涵的头像" class="profile-picture">
+        <!-- 个人头像图片 -->
+        <img src="images/profile.jpg" alt="杨官宇涵的头像 / Profile picture of Guanyuhan Yang" class="profile-picture">
 
         <h1 class="profile-name">
             <span class="lang-zh">杨官宇涵 (Guanyuhan Yang)</span>
@@ -169,27 +125,87 @@
         </div>
     </header>
 
-    <!-- 主内容容器 (后续代码无改动) -->
     <div class="container">
+    
+        <!-- 关于我 -->
         <div class="section">
             <h2 class="section-title">
                 <span class="lang-zh">关于我</span><span class="lang-en">About Me</span>
             </h2>
-            <p>
-                <strong class="lang-zh">院系：</strong><span class="lang-zh">致诚书院 | 大二本科生</span>
-                <strong class="lang-en">College:</strong><span class="lang-en"> Zhicheng College | Sophomore</span>
-            </p>
-            <p class="lang-zh">我对计算机科学充满热情，尤其在人工智能、机器学习和计算机视觉领域有浓厚兴趣。我享受通过编程解决挑战性难题的过程，并具备优秀的团队协作、问题解决和快速学习能力。我致力于不断提升自我，探索技术的边界。</p>
-            <p class="lang-en">I am passionate about computer science, with a keen interest in Artificial Intelligence, Machine Learning, and Computer Vision. I enjoy solving challenging problems through programming and possess excellent skills in teamwork, problem-solving, and quick learning. I am committed to continuous self-improvement and exploring the frontiers of technology.</p>
+            <p><strong class="lang-zh">院系：</strong><span class="lang-zh">致诚书院 | 大二本科生</span><strong class="lang-en">College:</strong><span class="lang-en"> Zhicheng College | Sophomore</span></p>
+            <p class="lang-zh">我对计算机科学充满热情，尤其在人工智能、机器学习和计算机视觉领域有浓厚兴趣。我享受通过编程解决挑战性难题的过程，并具备优秀的团队协作、问题解决和快速学习能力。</p>
+            <p class="lang-en">I am passionate about computer science, with a keen interest in Artificial Intelligence and Computer Vision. I enjoy solving challenging problems through programming and possess excellent skills in teamwork, problem-solving, and quick learning.</p>
         </div>
-        <!-- 其他 section 保持不变... -->
+    
+        <!-- 教育与荣誉 -->
+        <div class="section">
+             <h2 class="section-title"><span class="lang-zh">教育与荣誉</span><span class="lang-en">Education & Honors</span></h2>
+             <!-- 此部分无图片，保持不变 -->
+        </div>
+
+        <!-- 技能栈 -->
+        <div class="section">
+            <h2 class="section-title"><span class="lang-zh">技能栈</span><span class="lang-en">Skills</span></h2>
+             <!-- 此部分无图片，保持不变 -->
+        </div>
+        
+        <!-- 项目经验 -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="lang-zh">项目经验</span><span class="lang-en">Projects</span>
+            </h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <!-- 项目1图片 -->
+                    <img src="images/project1.png" alt="2048 Game Screenshot" class="project-image">
+                    <div class="project-card-header"><span class="lang-zh">Java 2048 小游戏</span><span class="lang-en">2048 Game in Java</span></div>
+                    <div class="project-card-body">
+                        <span class="lang-zh">使用Java语言独立开发的一款经典的2048小程序。</span><span class="lang-en">Developed a classic 2048 mini-game using Java.</span>
+                        <a href="#" class="project-link"><span class="lang-zh">查看项目</span><span class="lang-en">View Project</span> &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <!-- 项目2图片 -->
+                    <img src="images/project2.png" alt="Article Management System Screenshot" class="project-image">
+                    <div class="project-card-header"><span class="lang-zh">文章管理系统</span><span class="lang-en">Article Management System</span></div>
+                    <div class="project-card-body">
+                        <span class="lang-zh">使用PostgreSQL数据库及Gradle框架进行构建、测试与部署。</span><span class="lang-en">Built an article management system using PostgreSQL and the Gradle framework.</span>
+                        <a href="#" class="project-link"><span class="lang-zh">查看项目</span><span class="lang-en">View Project</span> &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <!-- 项目3图片 -->
+                    <img src="images/project3.png" alt="Range Hood Circuit Diagram" class="project-image">
+                    <div class="project-card-header"><span class="lang-zh">抽油烟机电路控制</span><span class="lang-en">Range Hood Circuit Control</span></div>
+                    <div class="project-card-body">
+                        <span class="lang-zh">利用FPGA技术，完成抽油烟机的电路控制逻辑设计。</span><span class="lang-en">Designed a circuit to control a range hood using FPGA technology.</span>
+                        <a href="#" class="project-link"><span class="lang-zh">查看项目</span><span class="lang-en">View Project</span> &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <!-- 项目4图片 -->
+                    <img src="images/project4.png" alt="BMP Image Processing Example" class="project-image">
+                    <div class="project-card-header"><span class="lang-zh">BMP 图像处理</span><span class="lang-en">BMP Image Processing</span></div>
+                    <div class="project-card-body">
+                        <span class="lang-zh">使用C语言完成，支持基本图像操作，并采用SIMD和多线程加速。</span><span class="lang-en">Implemented BMP image processing in C, accelerated with SIMD and multithreading.</span>
+                        <a href="#" class="project-link"><span class="lang-zh">查看项目</span><span class="lang-en">View Project</span> &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 兴趣与规划 -->
+        <div class="section">
+             <h2 class="section-title"><span class="lang-zh">兴趣与规划</span><span class="lang-en">Interests & Plans</span></h2>
+              <!-- 此部分无图片，保持不变 -->
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Guanyuhan Yang - All Rights Reserved</p>
     </footer>
 
-    <!-- JavaScript 脚本 (无改动) -->
+    <!-- JavaScript 脚本 -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const langSwitcher = document.getElementById('lang-switcher');
@@ -200,18 +216,15 @@
                 htmlEl.lang = lang;
                 langSwitcher.textContent = (lang === 'zh-CN') ? 'English' : '中文';
                 const titleSpan = titleEl.querySelector(`.lang-${(lang === 'zh-CN' ? 'zh' : 'en')}`);
-                if (titleSpan) {
-                    document.title = titleSpan.textContent;
-                }
+                if (titleSpan) document.title = titleSpan.textContent;
             };
 
             langSwitcher.addEventListener('click', () => {
                 const newLang = htmlEl.lang === 'zh-CN' ? 'en' : 'zh-CN';
                 updateText(newLang);
             });
-
             updateText(htmlEl.lang);
         });
     </script>
 </body>
-</html>
+</html>```
