@@ -10,7 +10,14 @@
 
 ### 部署步骤
 
-1. **创建仓库** (如果还没有)
+1. **本地测试（确保没有问题）**
+   ```bash
+   npm install
+   npm run dev      # 本地测试
+   npm run build    # 本地构建测试
+   ```
+
+2. **推送代码到 GitHub** (如果还没有)
    ```bash
    git init
    git add .
@@ -20,23 +27,62 @@
    git push -u origin main
    ```
 
-2. **启用 GitHub Pages**
-   - 进入仓库设置 (Settings)
-   - 找到 "Pages" 部分
-   - Source 选择 "GitHub Actions"
-   - 保存
+3. **配置 GitHub Pages**
+   - 进入仓库首页
+   - 点击 ⚙️ **Settings**（仓库设置）
+   - 左侧菜单找到 **Pages**
+   - **Source** 选择 **"GitHub Actions"**
+   - 点击 **Save**
 
-3. **自动部署**
-   - 推送代码时，GitHub Actions 会自动构建和部署
-   - 部署成功后，访问 `https://YangGuanyuhan.github.io`
+4. **GitHub Actions 自动部署**
+   - GitHub Actions 会自动构建和部署
+   - 流程完成后，访问 `https://YangGuanyuhan.github.io`
+   - 如果出错，检查 **Actions** 标签页的错误日志
 
-### 自定义域名 (可选)
+### 完整的本地测试流程 ✅
 
-如果你有自己的域名：
+在推送之前，用这个命令完整测试：
+```bash
+# 进入项目目录
+cd f:\文件夹\个人\YangGuanyuhan.github.io
 
-1. 编辑 `.github/workflows/deploy.yml`
-2. 修改 `cname: yangguanyuhan.github.io` 为你的域名
-3. 在域名提供商那里设置 DNS 记录
+# 1. 安装依赖
+npm install
+
+# 2. 本地开发（看效果）
+npm run dev
+# （在浏览器里检查，按 Ctrl+C 关闭）
+
+# 3. 代码检查
+npm run lint
+
+# 4. 本地构建（这是 GitHub Actions 会运行的）
+npm run build
+
+# 5. 预览生产版本
+npm run preview
+# （再次检查网站，按 Ctrl+C 关闭）
+
+# 6. 确认没问题后推送
+git add .
+git commit -m "feat: portfolio website ready for deployment"
+git push
+```
+
+### 注意事项 ⚠️
+
+- ✅ **必须**: 在 GitHub Pages 设置中选择 "GitHub Actions" 作为源
+- ✅ **必须**: 本地先用 `npm run build` 测试，确保构建成功
+- ✅ **必须**: 检查 GitHub Actions 日志是否有错误
+
+### 故障排除
+
+| 问题 | 解决方案 |
+|------|---------|
+| GitHub Pages 显示 404 | 检查 Settings > Pages 的源是否设置为 "GitHub Actions" |
+| 构建失败 | 本地运行 `npm run build` 看错误详情 |
+| CSS 不加载 | 检查浏览器控制台（F12）是否有网络错误 |
+| 页面不更新 | 清除浏览器缓存（Ctrl+Shift+Del）或用无痕窗口 |
 
 ## 选项 2: Vercel
 
