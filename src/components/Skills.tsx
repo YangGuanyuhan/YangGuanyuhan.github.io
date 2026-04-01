@@ -22,7 +22,7 @@ export default function Skills() {
 
   const languages = [
     { name: '中文', level: '母语' },
-    { name: '英文', level: 'CET-6 | IELTS 6.5' }
+    { name: '英文', level: 'CET-6' }
   ]
 
   return (
