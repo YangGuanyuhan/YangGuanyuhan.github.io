@@ -1,6 +1,6 @@
 .skills {
   padding: 80px 0;
-  background: linear-gradient(180deg, transparent, rgba(0, 212, 255, 0.03));
+  background: linear-gradient(180deg, transparent, rgba(221, 188, 122, 0.06));
 }
 
 .skills-grid {
@@ -21,7 +21,7 @@
 
 .skill-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
+  box-shadow: 0 12px 30px rgba(185, 140, 62, 0.22);
   transform: translateY(-5px);
   background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
 }
@@ -50,7 +50,7 @@
 }
 
 .skill-tag {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 0, 110, 0.1));
+  background: linear-gradient(135deg, rgba(221, 188, 122, 0.16), rgba(111, 96, 73, 0.12));
   border: 1px solid var(--border);
   color: var(--text);
   padding: 0.5rem 1rem;
@@ -62,11 +62,11 @@
 }
 
 .skill-tag:hover {
-  background: rgba(0, 212, 255, 0.25);
+  background: rgba(221, 188, 122, 0.25);
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 8px 16px rgba(185, 140, 62, 0.24);
 }
 
 /* 语言能力部分 */
@@ -110,7 +110,7 @@
 
 .language-item:hover {
   border-color: var(--accent);
-  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
+  box-shadow: 0 12px 30px rgba(185, 140, 62, 0.22);
   transform: translateY(-5px);
 }
 

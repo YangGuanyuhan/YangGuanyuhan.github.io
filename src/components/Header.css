@@ -11,11 +11,11 @@
 }
 
 .header.scrolled {
-  background: rgba(15, 20, 25, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
+  background: rgba(15, 15, 20, 0.48);
+  backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 1px solid var(--glass-border);
   padding: var(--space-sm) 0;
-  box-shadow: 0 2px 20px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.26);
 }
 
 .header-container {
@@ -28,13 +28,15 @@
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .logo-text {
-  background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+  font-family: 'Cormorant Garamond', serif;
+  background: linear-gradient(135deg, #f4e4bf, #bb9457 45%, #8f6a35);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -59,12 +61,12 @@ nav {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+  background: linear-gradient(90deg, #f1d195, #b8914f);
   transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: var(--accent);
+  color: #f5dca8;
 }
 
 .nav-link:hover::after {
@@ -89,14 +91,14 @@ nav {
     left: 0;
     right: 0;
     flex-direction: column;
-    background: rgba(15, 20, 25, 0.98);
-    backdrop-filter: blur(10px);
+    background: rgba(12, 12, 17, 0.76);
+    backdrop-filter: blur(18px) saturate(130%);
     padding: var(--space-lg);
     gap: var(--space-md);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--glass-border);
   }
 
   nav.open {

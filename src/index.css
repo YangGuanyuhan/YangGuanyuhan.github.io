@@ -1,15 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap');
 
 :root {
-  --primary: #1a1a2e;
-  --secondary: #16213e;
-  --accent: #00d4ff;
-  --accent-alt: #ff006e;
-  --text: #e0e0e0;
-  --text-muted: #a0a0a0;
-  --bg: #0f1419;
-  --card-bg: #1a1a2e;
-  --border: #2a2a3e;
+  --primary: #111217;
+  --secondary: #1a1d25;
+  --accent: #ddbc7a;
+  --accent-alt: #9b7a42;
+  --text: #f3ede3;
+  --text-muted: #b4a795;
+  --text-soft: #d9ccbb;
+  --bg: #090a0d;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.14);
+  --glass-border: rgba(255, 255, 255, 0.22);
   --success: #00d084;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -28,7 +30,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+  font-family: 'Manrope', 'Noto Sans SC', sans-serif;
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.8;
@@ -50,10 +52,22 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 18% 20%, rgba(221, 188, 122, 0.16) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(89, 116, 184, 0.14) 0%, transparent 46%),
+    linear-gradient(160deg, #090a0d 0%, #0f1016 40%, #13141d 100%);
   pointer-events: none;
   z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 0.45px, transparent 0.45px);
+  background-size: 2px 2px;
+  opacity: 0.12;
 }
 
 /* 通用样式 */

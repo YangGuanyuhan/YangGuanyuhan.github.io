@@ -1,6 +1,6 @@
 .contact {
   padding: 80px 0;
-  background: linear-gradient(180deg, transparent, rgba(255, 0, 110, 0.03));
+  background: linear-gradient(180deg, transparent, rgba(221, 188, 122, 0.06));
 }
 
 .contact-content {
@@ -49,7 +49,7 @@
 
 .contact-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.15);
+  box-shadow: 0 14px 40px rgba(185, 140, 62, 0.24);
   transform: translateY(-5px);
   background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
 }
@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 0, 110, 0.2));
+  background: linear-gradient(135deg, rgba(221, 188, 122, 0.22), rgba(111, 96, 73, 0.22));
   border: 2px solid var(--border);
   border-radius: 10px;
   color: var(--accent);
@@ -69,7 +69,7 @@
 }
 
 .contact-card:hover .contact-icon {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(255, 0, 110, 0.3));
+  background: linear-gradient(135deg, rgba(221, 188, 122, 0.3), rgba(111, 96, 73, 0.3));
   border-color: var(--accent);
   transform: scale(1.1);
 }
@@ -99,7 +99,7 @@
 .contact-cta {
   text-align: center;
   padding: 40px;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 0, 110, 0.08));
+  background: linear-gradient(135deg, rgba(221, 188, 122, 0.12), rgba(111, 96, 73, 0.12));
   border: 2px solid var(--border);
   border-radius: 12px;
 }
