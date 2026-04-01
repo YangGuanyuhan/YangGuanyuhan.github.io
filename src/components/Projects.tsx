@@ -1,4 +1,4 @@
-import { Github, ExternalLink } from 'lucide-react'
+import { Github } from 'lucide-react'
 import './Projects.css'
 
 export default function Projects() {

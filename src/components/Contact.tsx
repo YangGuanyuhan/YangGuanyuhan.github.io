@@ -1,4 +1,4 @@
-import { Mail, Phone, Github, Linkedin } from 'lucide-react'
+import { Mail, Phone, Github } from 'lucide-react'
 import './Contact.css'
 
 export default function Contact() {
