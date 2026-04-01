@@ -1,0 +1,182 @@
+.about {
+  padding: 80px 0;
+}
+
+.section {
+  scroll-margin-top: 80px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+  border-radius: 2px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-lg);
+}
+
+.about-card {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.about-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.card-header {
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 110, 0.1));
+  border-bottom: 1px solid var(--border);
+}
+
+.card-header h3 {
+  font-size: 1.3rem;
+  color: var(--accent);
+  margin: 0;
+}
+
+.card-content {
+  padding: var(--space-lg);
+}
+
+.school-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+}
+
+.major {
+  color: var(--accent);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-sm);
+}
+
+.level {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-md);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.honors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.honor-badge {
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--accent);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  border: 1px solid var(--accent);
+  display: inline-block;
+}
+
+.intentions-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.intention-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  color: var(--text);
+}
+
+.intention-item .icon {
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-md);
+}
+
+.course-item {
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid var(--border);
+  padding: var(--space-md);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.course-item:hover {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
