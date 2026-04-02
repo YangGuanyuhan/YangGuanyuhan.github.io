@@ -1,12 +1,12 @@
 .contact {
-  padding: 80px 0;
-  background: linear-gradient(180deg, transparent, rgba(221, 188, 122, 0.06));
+  padding: 74px 0;
+  background: linear-gradient(180deg, transparent, rgba(127, 219, 255, 0.09));
 }
 
 .contact-content {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 52px;
 }
 
 .contact-intro {
@@ -16,15 +16,15 @@
 }
 
 .contact-intro h3 {
-  font-size: 2rem;
-  color: var(--accent);
+  font-size: clamp(1.5rem, 3vw, 1.95rem);
+  color: var(--text-primary);
   margin-bottom: var(--space-md);
-  font-weight: 600;
+  font-weight: 520;
 }
 
 .contact-intro p {
-  color: var(--text-muted);
-  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
   line-height: 1.8;
 }
 
@@ -39,19 +39,18 @@
   display: flex;
   gap: var(--space-lg);
   padding: var(--space-lg);
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.7), rgba(22, 33, 62, 0.7));
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  background: linear-gradient(145deg, var(--panel-base), var(--panel-cool));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+  backdrop-filter: blur(30px) saturate(145%);
   cursor: pointer;
+  box-shadow: var(--shadow-soft), var(--shadow-glow);
 }
 
 .contact-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 14px 40px rgba(185, 140, 62, 0.24);
-  transform: translateY(-5px);
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+  box-shadow: 0 16px 36px rgba(0, 122, 255, 0.14), 0 2px 12px rgba(255, 255, 255, 0.24);
+  transform: translateY(-4px);
 }
 
 .contact-icon {
@@ -60,18 +59,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(221, 188, 122, 0.22), rgba(111, 96, 73, 0.22));
-  border: 2px solid var(--border);
-  border-radius: 10px;
-  color: var(--accent);
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.2), rgba(127, 219, 255, 0.22));
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 16px;
+  color: rgba(0, 0, 0, 0.68);
   flex-shrink: 0;
   transition: all 0.3s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
 .contact-card:hover .contact-icon {
-  background: linear-gradient(135deg, rgba(221, 188, 122, 0.3), rgba(111, 96, 73, 0.3));
-  border-color: var(--accent);
-  transform: scale(1.1);
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.28), rgba(127, 219, 255, 0.26));
+  transform: scale(1.04);
 }
 
 .contact-info {
@@ -81,7 +80,7 @@
 }
 
 .contact-label {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -89,9 +88,9 @@
 }
 
 .contact-value {
-  color: var(--text);
-  font-size: 1.1rem;
-  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 540;
   word-break: break-word;
 }
 
@@ -99,27 +98,29 @@
 .contact-cta {
   text-align: center;
   padding: 40px;
-  background: linear-gradient(135deg, rgba(221, 188, 122, 0.12), rgba(111, 96, 73, 0.12));
-  border: 2px solid var(--border);
-  border-radius: 12px;
+  background: linear-gradient(145deg, var(--panel-base), var(--panel-cool));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft), var(--shadow-glow);
+  backdrop-filter: blur(28px);
 }
 
 .contact-cta p {
-  color: var(--text-muted);
-  font-size: 1.05rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
   margin: 0;
 }
 
 .contact-cta a {
-  color: var(--accent);
-  font-weight: 600;
+  color: var(--text-primary);
+  font-weight: 530;
   transition: all 0.3s ease;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 1px solid rgba(0, 122, 255, 0.55);
 }
 
 .contact-cta a:hover {
-  color: var(--accent-alt);
-  border-color: var(--accent-alt);
+  color: rgba(0, 122, 255, 0.82);
+  border-color: rgba(0, 122, 255, 0.82);
 }
 
 @media (max-width: 768px) {

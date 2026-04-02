@@ -1,42 +1,72 @@
 .header {
   position: fixed;
-  top: 0;
+  top: 16px;
   left: 0;
   right: 0;
-  padding: var(--space-md) 0;
+  padding: 0;
   background: transparent;
-  backdrop-filter: blur(0px);
-  transition: all 0.3s ease;
+  transition: transform 0.35s ease, opacity 0.35s ease;
   z-index: 100;
 }
 
 .header.scrolled {
-  background: rgba(15, 15, 20, 0.48);
-  backdrop-filter: blur(20px) saturate(140%);
-  border-bottom: 1px solid var(--glass-border);
-  padding: var(--space-sm) 0;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.26);
+  transform: translateY(-2px);
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 var(--space-lg);
+  padding: 0.78rem clamp(1.1rem, 3vw, 2.4rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 22px;
+  border: 1px solid var(--glass-border);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(241, 246, 255, 0.52));
+  box-shadow: var(--shadow-soft), var(--shadow-glow);
+  backdrop-filter: blur(28px) saturate(150%);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0));
+  opacity: 0.62;
+  pointer-events: none;
+}
+
+.header-container::after {
+  content: '';
+  position: absolute;
+  top: -65%;
+  left: -40%;
+  width: 42%;
+  height: 230%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.42) 50%, transparent 100%);
+  transform: rotate(18deg);
+  transition: transform 0.9s ease;
+  pointer-events: none;
+}
+
+.header-container:hover::after {
+  transform: translateX(300%) rotate(18deg);
 }
 
 .logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
 
 .logo-text {
-  font-family: 'Cormorant Garamond', serif;
-  background: linear-gradient(135deg, #f4e4bf, #bb9457 45%, #8f6a35);
+  background: linear-gradient(130deg, rgba(0, 0, 0, 0.8), rgba(0, 122, 255, 0.82));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -44,65 +74,83 @@
 
 nav {
   display: flex;
-  gap: var(--space-lg);
+  gap: clamp(0.6rem, 2vw, 1.4rem);
+  position: relative;
+  z-index: 1;
 }
 
 .nav-link {
-  color: var(--text);
+  color: var(--text-secondary);
   font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease, background-color 0.25s ease;
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -5px;
-  left: 0;
+  bottom: -1px;
+  left: 8px;
   width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #f1d195, #b8914f);
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(0, 122, 255, 0.7), rgba(127, 219, 255, 0.7));
   transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #f5dca8;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.38);
 }
 
 .nav-link:hover::after {
-  width: 100%;
+  width: calc(100% - 16px);
 }
 
 .menu-toggle {
   display: none;
-  color: var(--text);
+  color: var(--text-primary);
   background: none;
-  padding: var(--space-sm);
+  padding: 0.32rem;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
+  .header {
+    top: 10px;
+  }
+
   .header-container {
-    padding: 0 var(--space-md);
+    padding: 0.7rem 0.9rem;
+    margin: 0 0.7rem;
   }
 
   nav {
     position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
+    top: 72px;
+    left: 0.7rem;
+    right: 0.7rem;
     flex-direction: column;
-    background: rgba(12, 12, 17, 0.76);
-    backdrop-filter: blur(18px) saturate(130%);
-    padding: var(--space-lg);
-    gap: var(--space-md);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(240, 245, 255, 0.62));
+    backdrop-filter: blur(28px) saturate(150%);
+    padding: 1rem;
+    gap: 0.4rem;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
-    border-bottom: 1px solid var(--glass-border);
+    transition: max-height 0.35s ease;
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
   }
 
   nav.open {
-    max-height: 300px;
+    max-height: 320px;
+  }
+
+  .nav-link {
+    padding: 0.7rem 0.9rem;
   }
 
   .menu-toggle {

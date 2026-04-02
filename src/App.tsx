@@ -14,10 +14,44 @@ export default function App() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
+
+      const doc = document.documentElement
+      const maxScroll = Math.max(doc.scrollHeight - window.innerHeight, 1)
+      const progress = Math.min(window.scrollY / maxScroll, 1)
+      doc.style.setProperty('--scroll-progress', progress.toFixed(4))
     }
 
     window.addEventListener('scroll', handleScroll)
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const targets = Array.from(document.querySelectorAll<HTMLElement>('.fade-in, .slide-up'))
+    if (!targets.length) return
+
+    targets.forEach((target) => target.classList.add('reveal-ready'))
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.16,
+        rootMargin: '0px 0px -12% 0px'
+      }
+    )
+
+    targets.forEach((target) => observer.observe(target))
+
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   return (

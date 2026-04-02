@@ -1,22 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #111217;
-  --secondary: #1a1d25;
-  --accent: #ddbc7a;
-  --accent-alt: #9b7a42;
-  --text: #f3ede3;
-  --text-muted: #b4a795;
-  --text-soft: #d9ccbb;
-  --bg: #090a0d;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --border: rgba(255, 255, 255, 0.14);
-  --glass-border: rgba(255, 255, 255, 0.22);
-  --success: #00d084;
+  --scroll-progress: 0;
+  --accent-blue: #007aff;
+  --accent-lavender: #b8c6ff;
+  --accent-cyan: #7fdbff;
+  --accent-warm: #ffd6a5;
+  --text-primary: rgba(0, 0, 0, 0.75);
+  --text-secondary: rgba(0, 0, 0, 0.5);
+  --panel-base: rgba(255, 255, 255, 0.6);
+  --panel-cool: rgba(240, 245, 255, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.34);
+  --glass-inner: rgba(255, 255, 255, 0.62);
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 2px 10px rgba(255, 255, 255, 0.2);
+  --radius-card: 24px;
+  --radius-pill: 999px;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
-  --space-xl: 2rem;
+  --space-xl: 2.4rem;
 }
 
 * {
@@ -30,10 +33,10 @@ html {
 }
 
 body {
-  font-family: 'Manrope', 'Noto Sans SC', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.8;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'PingFang SC', 'Noto Sans SC', sans-serif;
+  background: linear-gradient(140deg, #eaf2ff 0%, #f2f6ff 42%, #fdfdfe 100%);
+  color: var(--text-primary);
+  line-height: 1.75;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -51,10 +54,12 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 18% 20%, rgba(221, 188, 122, 0.16) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(89, 116, 184, 0.14) 0%, transparent 46%),
-    linear-gradient(160deg, #090a0d 0%, #0f1016 40%, #13141d 100%);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(127, 219, 255, 0.24) 0%, transparent 42%),
+    radial-gradient(circle at 85% 15%, rgba(184, 198, 255, 0.22) 0%, transparent 44%),
+    radial-gradient(circle at 76% 82%, rgba(255, 214, 165, 0.18) 0%, transparent 38%);
+  filter: blur(12px);
+  animation: backgroundDrift 18s ease-in-out infinite alternate;
   pointer-events: none;
   z-index: 0;
 }
@@ -65,20 +70,32 @@ body::after {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 0.45px, transparent 0.45px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.52) 0.4px, transparent 0.4px);
   background-size: 2px 2px;
-  opacity: 0.12;
+  opacity: 0.16;
+}
+
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.05)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.024) 0, rgba(255, 255, 255, 0.024) 1px, transparent 1px, transparent 3px);
+  mix-blend-mode: soft-light;
 }
 
 /* 通用样式 */
 a {
-  color: var(--accent);
+  color: var(--accent-blue);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--accent-alt);
+  color: #2f8fff;
 }
 
 button {
@@ -93,16 +110,25 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: rgba(0, 122, 255, 0.4);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-alt);
+  background: rgba(0, 122, 255, 0.6);
+}
+
+@keyframes backgroundDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(1.8%, -1.2%, 0) scale(1.04);
+  }
 }
 
 /* 响应式断点 */

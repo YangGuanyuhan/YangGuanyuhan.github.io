@@ -1,7 +1,7 @@
 .hero {
-  padding: 130px 0 90px;
+  padding: 28px 0 78px;
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 30px);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -15,8 +15,43 @@
 .hero-layout {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 2.5rem;
+  gap: clamp(1.4rem, 3.6vw, 3rem);
   align-items: center;
+  border-radius: 28px;
+  border: 1px solid var(--glass-border);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.66), rgba(240, 245, 255, 0.52));
+  box-shadow: var(--shadow-soft), var(--shadow-glow);
+  backdrop-filter: blur(34px) saturate(152%);
+  padding: clamp(1.6rem, 4vw, 2.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-layout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0));
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.hero-layout::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -35%;
+  width: 38%;
+  height: 220%;
+  transform: rotate(20deg);
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+  transition: transform 0.95s ease;
+  pointer-events: none;
+}
+
+.hero-layout:hover::after {
+  transform: translateX(320%) rotate(20deg);
 }
 
 .hero-content {
@@ -26,20 +61,20 @@
 }
 
 .hero-kicker {
-  color: var(--accent-alt);
-  font-size: 0.82rem;
+  color: rgba(0, 0, 0, 0.48);
+  font-size: 0.78rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   margin-bottom: 0.85rem;
-  font-weight: 600;
+  font-weight: 550;
 }
 
 .hero-title {
-  font-size: clamp(2.8rem, 6vw, 5.2rem);
-  font-weight: 800;
-  margin-bottom: var(--space-md);
-  line-height: 1.08;
-  background: linear-gradient(140deg, var(--text), #f8e7be 55%, var(--accent));
+  font-size: clamp(2.15rem, 5vw, 3.6rem);
+  font-weight: 520;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(140deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.62) 48%, rgba(0, 122, 255, 0.66));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -47,18 +82,18 @@
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  color: var(--accent);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  color: rgba(0, 0, 0, 0.62);
   margin-bottom: var(--space-md);
-  font-weight: 550;
-  letter-spacing: 0.08em;
+  font-weight: 500;
+  letter-spacing: 0.06em;
 }
 
 .hero-description {
-  font-size: 1.1rem;
-  color: var(--text-soft);
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  color: var(--text-secondary);
   margin-bottom: var(--space-xl);
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .hero-cta {
@@ -69,84 +104,93 @@
 }
 
 .btn {
-  padding: 0.98rem 1.9rem;
+  padding: 0.82rem 1.5rem;
   border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
   cursor: pointer;
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #f5d891, #cb9f51 55%, #a57c33);
-  color: #251a07;
-  border: 1px solid rgba(255, 232, 180, 0.5);
-  box-shadow: inset 0 1px 0 rgba(255, 244, 210, 0.65), 0 15px 30px rgba(190, 140, 45, 0.25);
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.25), rgba(127, 219, 255, 0.22));
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: inset 0 1px 0 rgba(255, 244, 210, 0.7), 0 18px 36px rgba(190, 140, 45, 0.32);
+  transform: scale(1.02) translateY(-1px);
+  box-shadow: 0 14px 32px rgba(0, 122, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.78);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text);
-  border: 1px solid var(--glass-border);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.62), rgba(240, 245, 255, 0.48));
+  color: var(--text-primary);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 224, 156, 0.35);
-  color: #ffe4b3;
-  transform: translateY(-3px);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.72), rgba(240, 245, 255, 0.6));
+  transform: scale(1.02) translateY(-1px);
+  box-shadow: 0 14px 30px rgba(12, 36, 90, 0.12);
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 
 .hero-contact {
   display: flex;
-  gap: var(--space-lg);
-  margin-top: var(--space-xl);
+  gap: 0.9rem;
+  margin-top: 1.6rem;
 }
 
 .contact-link {
-  width: 50px;
-  height: 50px;
-  border: 1px solid var(--glass-border);
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  color: var(--accent);
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease;
+  color: rgba(0, 0, 0, 0.62);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.64), rgba(240, 245, 255, 0.56));
+  backdrop-filter: blur(22px);
 }
 
 .contact-link:hover {
-  border-color: rgba(255, 224, 156, 0.42);
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(255, 191, 97, 0.22);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(240, 245, 255, 0.62));
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 122, 255, 0.14);
 }
 
 .hero-media {
   display: grid;
   gap: 1rem;
   justify-items: end;
+  transform: translateY(calc(var(--scroll-progress, 0) * -26px));
+  transition: transform 0.35s ease;
 }
 
 .hobby-card {
   position: relative;
   width: min(100%, 390px);
-  border-radius: 28px;
+  border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.26);
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.6), rgba(240, 245, 255, 0.48));
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hobby-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 24px 44px rgba(0, 122, 255, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
 .hobby-card-large {
@@ -169,7 +213,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(5, 5, 8, 0.1), rgba(5, 5, 8, 0.75));
+  background: linear-gradient(180deg, rgba(14, 19, 31, 0.08), rgba(14, 19, 31, 0.58));
 }
 
 .hobby-overlay {
@@ -178,15 +222,15 @@
   right: 1rem;
   bottom: 1rem;
   z-index: 2;
-  background: rgba(246, 244, 237, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(14px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(240, 245, 255, 0.44));
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  backdrop-filter: blur(24px);
   border-radius: 16px;
-  padding: 0.75rem 0.9rem;
+  padding: 0.72rem 0.88rem;
 }
 
 .hobby-label {
-  color: #f2d089;
+  color: rgba(0, 0, 0, 0.5);
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -194,8 +238,8 @@
 
 .hobby-overlay h3 {
   margin-top: 0.2rem;
-  font-size: 1.08rem;
-  color: #fff2d6;
+  font-size: 1.03rem;
+  color: rgba(0, 0, 0, 0.72);
 }
 
 /* 装饰元素 */
@@ -207,31 +251,32 @@
   right: 0;
   z-index: 1;
   overflow: hidden;
+  transform: translateY(calc(var(--scroll-progress, 0) * -16px));
 }
 
 .glow-circle {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.32;
+  filter: blur(80px);
+  opacity: 0.38;
 }
 
 .glow-1 {
   width: 560px;
   height: 560px;
-  background: #9f7b34;
+  background: rgba(184, 198, 255, 0.8);
   top: -160px;
   right: -120px;
-  animation: float 6s ease-in-out infinite;
+  animation: float 9s ease-in-out infinite;
 }
 
 .glow-2 {
   width: 360px;
   height: 360px;
-  background: #5169a8;
+  background: rgba(255, 214, 165, 0.7);
   bottom: -80px;
   right: 8%;
-  animation: float 8s ease-in-out infinite reverse;
+  animation: float 11s ease-in-out infinite reverse;
 }
 
 @keyframes float {
@@ -245,7 +290,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 100px 0 60px;
+    padding: 10px 0 56px;
     min-height: auto;
   }
 
@@ -255,15 +300,15 @@
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.02rem;
   }
 
   .hero-description {
-    font-size: 1rem;
+    font-size: 0.96rem;
   }
 
   .hero-cta {
