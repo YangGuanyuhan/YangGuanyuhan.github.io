@@ -6,8 +6,6 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import ParticleBackground from './components/ParticleBackground'
-import MouseFollower from './components/MouseFollower'
 import './App.css'
 
 export default function App() {
@@ -58,8 +56,6 @@ export default function App() {
 
   return (
     <div className="app">
-      <ParticleBackground />
-      <MouseFollower />
       <Header scrolled={scrolled} />
       <main>
         <Hero />

@@ -6,18 +6,15 @@
   --accent-lavender: #b8c6ff;
   --accent-cyan: #7fdbff;
   --accent-warm: #ffd6a5;
-  --accent-neon: #00d4ff;
-  --accent-purple: #7b2ff7;
-  --accent-pink: #ff006e;
-  --text-primary: rgba(255, 255, 255, 0.9);
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --panel-base: rgba(22, 27, 34, 0.8);
-  --panel-cool: rgba(22, 27, 34, 0.9);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-inner: rgba(255, 255, 255, 0.05);
-  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 20px rgba(0, 212, 255, 0.3);
-  --radius-card: 24px;
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+  --panel-base: rgba(255, 255, 255, 0.8);
+  --panel-cool: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-inner: rgba(255, 255, 255, 0.9);
+  --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 0 rgba(0, 0, 0, 0);
+  --radius-card: 20px;
   --radius-pill: 999px;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -37,7 +34,7 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'PingFang SC', 'Noto Sans SC', sans-serif;
-  background: #0d1117;
+  background: #ffffff;
   color: var(--text-primary);
   line-height: 1.75;
   overflow-x: hidden;
@@ -50,57 +47,15 @@ body {
   position: relative;
 }
 
-/* 背景渐变动画 */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 42%),
-    radial-gradient(circle at 85% 15%, rgba(123, 47, 247, 0.12) 0%, transparent 44%),
-    radial-gradient(circle at 76% 82%, rgba(255, 0, 110, 0.1) 0%, transparent 38%);
-  filter: blur(12px);
-  animation: backgroundDrift 18s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: -2;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 0.4px, transparent 0.4px);
-  background-size: 2px 2px;
-  opacity: 0.3;
-}
-
-#root::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.024) 0, rgba(255, 255, 255, 0.024) 1px, transparent 1px, transparent 3px);
-  mix-blend-mode: soft-light;
-}
-
 /* 通用样式 */
 a {
-  color: var(--accent-neon);
+  color: var(--accent-blue);
   text-decoration: none;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #00e5ff;
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  color: #0066cc;
 }
 
 button {
@@ -115,25 +70,16 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(22, 27, 34, 0.8);
+  background: #f5f5f7;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--accent-neon), var(--accent-purple));
+  background: #d2d2d7;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));
-}
-
-@keyframes backgroundDrift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  100% {
-    transform: translate3d(1.8%, -1.2%, 0) scale(1.04);
-  }
+  background: #86868b;
 }
 
 /* 响应式断点 */

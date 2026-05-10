@@ -1,6 +1,6 @@
 .footer {
-  background: linear-gradient(180deg, transparent, rgba(184, 198, 255, 0.12));
-  border-top: 1px solid rgba(255, 255, 255, 0.42);
+  background: #ffffff;
+  border-top: 1px solid #f0f0f0;
   padding: 60px 0 30px;
   margin-top: 60px;
 }
@@ -11,11 +11,9 @@
   gap: 40px;
   margin-bottom: 40px;
   align-items: flex-start;
-  border-radius: var(--radius-card);
-  border: 1px solid var(--glass-border);
-  background: linear-gradient(145deg, var(--panel-base), var(--panel-cool));
-  box-shadow: var(--shadow-soft), var(--shadow-glow);
-  backdrop-filter: blur(28px);
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
   padding: clamp(1.2rem, 3vw, 2rem);
 }
 
@@ -24,16 +22,14 @@
 }
 
 .footer-brand h3 {
-  font-size: 1.35rem;
-  background: linear-gradient(130deg, rgba(0, 0, 0, 0.82), rgba(0, 122, 255, 0.8));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 1.25rem;
+  color: #1d1d1f;
   margin: 0 0 var(--space-sm) 0;
+  font-weight: 600;
 }
 
 .footer-brand p {
-  color: var(--text-secondary);
+  color: #86868b;
   margin: 0;
   font-size: 0.9rem;
 }
@@ -45,8 +41,8 @@
 }
 
 .footer-section h4 {
-  color: var(--text-primary);
-  font-size: 0.95rem;
+  color: #1d1d1f;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0 0 var(--space-md) 0;
@@ -63,39 +59,23 @@
 }
 
 .footer-section a {
-  color: var(--text-secondary);
+  color: #86868b;
   font-size: 0.9rem;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.footer-section a::before {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1.5px;
-  background: rgba(0, 122, 255, 0.66);
-  transition: width 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-  color: var(--text-primary);
-}
-
-.footer-section a:hover::before {
-  width: 100%;
+  color: #1d1d1f;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid #f0f0f0;
   padding-top: 30px;
   text-align: center;
 }
 
 .footer-bottom p {
-  color: var(--text-secondary);
+  color: #86868b;
   font-size: 0.85rem;
   margin: 0 0 var(--space-sm) 0;
 }
@@ -118,7 +98,7 @@
   .footer-brand {
     padding-right: 0;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.44);
+    border-bottom: 1px solid #f0f0f0;
   }
 
   .footer-links {
