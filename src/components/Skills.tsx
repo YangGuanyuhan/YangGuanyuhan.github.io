@@ -1,4 +1,7 @@
 import './Skills.css'
+import './Animations.css'
+import Floating3DCard from './Floating3DCard'
+import ScrollReveal from './ScrollReveal'
 
 export default function Skills() {
   const skillCategories = [
@@ -28,18 +31,22 @@ export default function Skills() {
   return (
     <section id="skills" className="skills section">
       <div className="container">
-        <h2 className="section-title">技能栈</h2>
+        <h2 className="section-title gradient-text">技能栈</h2>
 
         <div className="skills-grid">
           {skillCategories.map((category, idx) => (
-            <div key={idx} className="skill-card slide-up">
-              <h3 className="skill-category-title">{category.title}</h3>
-              <div className="skills-list">
-                {category.items.map((skill, i) => (
-                  <span key={i} className="skill-tag">{skill}</span>
-                ))}
-              </div>
-            </div>
+            <ScrollReveal key={idx} delay={idx * 100}>
+              <Floating3DCard>
+                <div className="skill-card">
+                  <h3 className="skill-category-title">{category.title}</h3>
+                  <div className="skills-list">
+                    {category.items.map((skill, i) => (
+                      <span key={i} className="skill-tag">{skill}</span>
+                    ))}
+                  </div>
+                </div>
+              </Floating3DCard>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -48,10 +55,14 @@ export default function Skills() {
           <h3 className="subsection-title">语言能力</h3>
           <div className="languages-grid">
             {languages.map((lang, idx) => (
-              <div key={idx} className="language-item">
-                <div className="language-name">{lang.name}</div>
-                <div className="language-level">{lang.level}</div>
-              </div>
+              <ScrollReveal key={idx} delay={idx * 100}>
+                <Floating3DCard>
+                  <div className="language-item">
+                    <div className="language-name">{lang.name}</div>
+                    <div className="language-level">{lang.level}</div>
+                  </div>
+                </Floating3DCard>
+              </ScrollReveal>
             ))}
           </div>
         </div>
