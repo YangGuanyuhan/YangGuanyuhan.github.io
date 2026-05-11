@@ -1,70 +1,38 @@
-import { useState, useEffect } from 'react'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import './App.css'
+import { ReactLenis } from 'lenis/react'
+import NoiseOverlay from '@/components/background/NoiseOverlay'
+import AuroraBackground from '@/components/background/AuroraBackground'
+import GridPattern from '@/components/background/GridPattern'
+import GlowOrb from '@/components/background/GlowOrb'
+import CustomCursor from '@/effects/CustomCursor'
+import ScrollProgress from '@/components/navigation/ScrollProgress'
+import Header from '@/components/navigation/Header'
+import Hero from '@/components/sections/Hero/Hero'
+import About from '@/components/sections/About/About'
+import Skills from '@/components/sections/Skills/Skills'
+import Projects from '@/components/sections/Projects/Projects'
+import Contact from '@/components/sections/Contact/Contact'
+import Footer from '@/components/Footer/Footer'
 
 export default function App() {
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-
-      const doc = document.documentElement
-      const maxScroll = Math.max(doc.scrollHeight - window.innerHeight, 1)
-      const progress = Math.min(window.scrollY / maxScroll, 1)
-      doc.style.setProperty('--scroll-progress', progress.toFixed(4))
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  useEffect(() => {
-    const targets = Array.from(document.querySelectorAll<HTMLElement>('.fade-in, .slide-up'))
-    if (!targets.length) return
-
-    targets.forEach((target) => target.classList.add('reveal-ready'))
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      {
-        threshold: 0.16,
-        rootMargin: '0px 0px -12% 0px'
-      }
-    )
-
-    targets.forEach((target) => observer.observe(target))
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
-
   return (
-    <div className="app">
-      <Header scrolled={scrolled} />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
+      <div className="relative min-h-screen bg-surface-base text-text-primary">
+        <NoiseOverlay />
+        <AuroraBackground />
+        <GridPattern />
+        <GlowOrb />
+        <CustomCursor />
+        <ScrollProgress />
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ReactLenis>
   )
 }
