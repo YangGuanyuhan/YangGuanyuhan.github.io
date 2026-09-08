@@ -1,56 +1,22 @@
-import { motion } from 'framer-motion'
-import { staggerContainer, fadeInUp, letterVariants } from '@/lib/motion'
 import { profile } from '@/data/profile'
-
 export default function HeroText() {
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={staggerContainer}
-    >
-      <motion.p
-        className="mb-4 font-mono text-[var(--text-xs)] font-medium uppercase tracking-[0.15em] text-[var(--accent-blue)]"
-        variants={fadeInUp}
-      >
-        {profile.kicker}
-      </motion.p>
-
-      <motion.h1
-        className="text-[var(--text-hero)] font-bold leading-[1.05] tracking-[-0.03em] text-[var(--text-primary)]"
-        initial="hidden"
-        animate="visible"
-      >
-        {profile.name.split('').map((char, i) => (
-          <motion.span
-            key={i}
-            className="inline-block"
-            variants={letterVariants}
-            custom={i}
-          >
-            {char}
-          </motion.span>
-        ))}
-      </motion.h1>
-
-      <motion.p
-        className="mt-4 font-mono text-[var(--text-sm)] tracking-wide text-[var(--accent-purple)]"
-        variants={fadeInUp}
-      >
-        {profile.subtitle}
-      </motion.p>
-
-      <motion.p
-        className="mt-6 max-w-[480px] text-[var(--text-lg)] leading-relaxed text-[var(--text-secondary)]"
-        variants={fadeInUp}
-      >
-        {profile.description.split('\n').map((line, i) => (
-          <span key={i}>
-            {line}
-            {i === 0 && <br />}
-          </span>
-        ))}
-      </motion.p>
-    </motion.div>
+    <>
+      <p className="hero-intro">
+        <span className="status-dot" aria-hidden="true" />
+        你好，我是 Guanyuhan
+      </p>
+      <h1 id="hero-title">{profile.name}</h1>
+      <p className="hero-tagline" lang="en">
+        Code. Explore. Repeat.
+      </p>
+      <p className="hero-description">
+        <strong>南方科技大学 · 计算机科学与技术 · 2027 届</strong>
+        <br />
+        探索计算机视觉与后端工程，把算法变成可靠的系统。
+        <br />
+        在代码之外，也在山海之间，保持好奇。
+      </p>
+    </>
   )
 }

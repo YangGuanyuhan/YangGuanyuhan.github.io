@@ -1,10 +1,3 @@
-import { ReactLenis } from 'lenis/react'
-import NoiseOverlay from '@/components/background/NoiseOverlay'
-import AuroraBackground from '@/components/background/AuroraBackground'
-import GridPattern from '@/components/background/GridPattern'
-import GlowOrb from '@/components/background/GlowOrb'
-import CustomCursor from '@/effects/CustomCursor'
-import ScrollProgress from '@/components/navigation/ScrollProgress'
 import Header from '@/components/navigation/Header'
 import Hero from '@/components/sections/Hero/Hero'
 import About from '@/components/sections/About/About'
@@ -15,24 +8,19 @@ import Footer from '@/components/Footer/Footer'
 
 export default function App() {
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
-      <div className="relative min-h-screen bg-surface-base text-text-primary">
-        <NoiseOverlay />
-        <AuroraBackground />
-        <GridPattern />
-        <GlowOrb />
-        <CustomCursor />
-        <ScrollProgress />
-        <Header />
-        <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </ReactLenis>
+    <>
+      <a className="skip-link" href="#main">
+        跳到主要内容
+      </a>
+      <Header />
+      <main id="main" tabIndex={-1}>
+        <Hero />
+        <Projects />
+        <About />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   )
 }

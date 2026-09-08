@@ -1,44 +1,37 @@
-import { motion } from 'framer-motion'
-import { Github } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import SectionTitle from '@/components/layout/SectionTitle'
-import StaggerChildren from '@/effects/StaggerChildren'
-import Button from '@/components/ui/Button'
-import { fadeInUp } from '@/lib/motion'
 import { projects } from '@/data/projects'
+import { profile } from '@/data/profile'
 import ProjectCard from './ProjectCard'
 
 export default function Projects() {
   return (
-    <Section id="projects" withGrid>
+    <Section id="projects">
       <SectionTitle
-        kicker="Projects"
-        title="项目经历"
-        description="从算法研究到系统部署，追求工程与理论的极致平衡。"
+        id="projects-title"
+        kicker="01 / SELECTED WORK"
+        title="把想法，写成作品。"
+        description="从特征匹配到端侧推理，连接算法研究与工程实践。"
+        action={
+          <a
+            className="text-link"
+            href={profile.contact.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            所有代码 <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+        }
       />
-      <StaggerChildren className="space-y-6">
+      <div className="projects-grid">
         {projects.map((project) => (
-          <motion.div key={project.id} variants={fadeInUp}>
-            <ProjectCard project={project} />
-          </motion.div>
+          <ProjectCard key={project.id} project={project} />
         ))}
-      </StaggerChildren>
-
-      <motion.div
-        className="mt-12 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
-        <p className="mb-4 text-[var(--text-sm)] text-text-tertiary">
-          更多项目和代码示例，请访问我的 GitHub
-        </p>
-        <Button href="https://github.com/YangGuanyuhan" variant="secondary">
-          <Github size={18} />
-          GitHub 主页
-        </Button>
-      </motion.div>
+      </div>
+      <p className="project-footnote">
+        项目成果来自各自测试环境，具体条件见「技术细节」。上方图形为技术概念示意。
+      </p>
     </Section>
   )
 }

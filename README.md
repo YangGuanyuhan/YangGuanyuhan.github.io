@@ -1,111 +1,68 @@
-# 📱 杨官宇涵 个人简历网站
+# 杨官宇涵 · Portfolio
 
-一个现代、专业、高性能的个人作品集网站，用 React + TypeScript + Vite 构建。
+[访问网站](https://yangguanyuhan.github.io/) · [部署状态](https://github.com/YangGuanyuhan/YangGuanyuhan.github.io/actions/workflows/deploy.yml)
 
-## ✨ 特点
+南方科技大学计算机科学与技术专业的个人作品集。包含项目成果、教育背景、技能与联系方式，支持桌面、平板和手机。
 
-- 🎨 **现代设计** - 深色主题，渐变配色，流畅动画
-- 📱 **完全响应式** - 完美适配所有设备
-- ⚡ **高性能** - 使用 Vite 构建，快速加载
-- 🎯 **SEO友好** - 优化的元标签和结构化内容
-- ♿ **无障碍访问** - 遵循 WCAG 标准
-- 🌍 **国际化** - 中文和英文支持
+## 本地开发
 
-## 🚀 快速开始
+使用 Node.js 24（版本记录在 `.nvmrc`）。
 
-### 前提条件
-- Node.js 16 及以上
-- npm 或 yarn
-
-### 安装依赖
-
-```bash
-npm install
-```
-
-### 开发模式
-
-```bash
+```sh
+npm ci
 npm run dev
 ```
 
-访问 [http://localhost:3000](http://localhost:3000)
+打开 http://127.0.0.1:3000。生产预览：
 
-### 构建生产版本
-
-```bash
+```sh
+npm run lint
 npm run build
-```
-
-### 预览生产版本
-
-```bash
 npm run preview
 ```
 
-## 📁 项目结构
+## 仓库结构
 
-```
+```text
 src/
-├── components/           # React 组件
-│   ├── Header.tsx       # 导航栏
-│   ├── Hero.tsx         # 首屏
-│   ├── About.tsx        # 关于我
-│   ├── Skills.tsx       # 技能栈
-│   ├── Projects.tsx     # 项目经历
-│   ├── Contact.tsx      # 联系方式
-│   ├── Footer.tsx       # 页脚
-│   └── *.css            # 组件样式
-├── App.tsx              # 主应用
-├── App.css              # 全局样式
-├── index.css            # 基础样式
-└── main.tsx             # 应用入口
+  components/
+    layout/           页面容器与章节标题
+    navigation/       桌面与移动导航
+    sections/         Hero、Projects、About、Skills、Contact
+    ui/               按钮与标签
+    Footer/           页脚
+  data/               个人资料、项目、教育、技能、导航
+  hooks/              当前章节检测
+  styles/tokens.css   统一颜色、字体和布局变量
+  index.css           组件样式与响应式规则
+public/               直接发布的图标、WebP 照片、SEO 文件
+assets/originals/     原始照片，不随网站发布
+scripts/              可复现的照片压缩脚本
+docs/                 部署、维护说明和 GitHub 简介模板
+.github/workflows/    网站发布与贡献蛇动画
 ```
 
-## 🛠️ 技术栈
+## 编辑内容
 
-- **前端框架**: React 18
-- **言语**: TypeScript
-- **构建工具**: Vite
-- **样式**: CSS3 + 变量
-- **图标**: Lucide React
-- **字体**: Google Fonts (Roboto, Noto Sans SC)
+- 个人信息与照片：`src/data/profile.ts`
+- 项目描述、成果与细节：`src/data/projects.ts`
+- 教育与课程：`src/data/education.ts`
+- 技术与语言能力：`src/data/skills.ts`
+- 颜色和版心：`src/styles/tokens.css`
+- 布局与响应式：`src/index.css`
 
-## 📝 内容管理
+照片原图放在 `assets/originals/`，运行 `npm run images` 生成 480px 和 960px 的 WebP 网页副本。原图不会修改。
 
-所有个人信息（项目、技能、教育等）都在组件中定义，可以轻松修改。
+## 部署与维护
 
-### 修改个人信息
+推送至 `main` 后，GitHub Actions 依次执行锁定依赖安装、ESLint、TypeScript 检查、Vite 构建、GitHub Pages 部署。拉取请求仅构建检查，不发布。
 
-编辑 `src/components/` 中的相应文件：
+- [部署与故障排查](docs/deployment.md)
+- [维护与视觉验收](docs/maintenance.md)
+- [GitHub 个人简介模板](docs/profile-readme.md)
 
-- **Hero.tsx** - 修改姓名、介绍、联系方式
-- **About.tsx** - 教育背景、课程、意向职位
-- **Skills.tsx** - 编程语言、框架、工具、语言能力
-- **Projects.tsx** - 项目经历和详情
+网站与 Snake Animation 是独立工作流。动画只更新 `output` 分支的 SVG，不参与网站构建。
 
-## 🌐 部署
+## 技术选择
 
-### GitHub Pages
-
-1. 推送到 GitHub 仓库
-2. 启用 GitHub Pages（仓库设置）
-3. 选择 `build` 分支或配置 Actions
-
-### Vercel / Netlify
-
-一键部署到 Vercel 或 Netlify
-
-## 📧 联系方式
-
-- **邮箱**: yanggyh2023@mail.sustech.edu.cn
-- **电话**: 183-8731-1225
-- **GitHub**: https://github.com/YangGuanyuhan
-
-## 📄 许可证
-
-MIT License - 自由使用和修改
-
----
-
-**更新于**: 2025 年 4 月
+React 18、TypeScript、Vite 7、Lucide 图标、原生 CSS。字体随网站部署，无第三方字体请求。动画遵循系统“减少动态效果”设置；导航、项目详情和联系按钮可使用键盘操作。

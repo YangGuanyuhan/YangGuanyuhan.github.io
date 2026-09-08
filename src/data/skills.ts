@@ -18,7 +18,14 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: '理论基础',
-    items: ['数据结构与算法', 'OOP & 设计模式', 'RESTful API', '深度学习', '计算机视觉', '嵌入式系统'],
+    items: [
+      '数据结构与算法',
+      'OOP & 设计模式',
+      'RESTful API',
+      '深度学习',
+      '计算机视觉',
+      '嵌入式系统',
+    ],
   },
 ]
 

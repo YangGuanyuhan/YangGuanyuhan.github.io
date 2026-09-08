@@ -1,38 +1,26 @@
-import GlassCard from '@/components/ui/GlassCard'
-import Badge from '@/components/ui/Badge'
+import { GraduationCap, Award } from 'lucide-react'
 import { education } from '@/data/education'
-
 export default function EducationCard() {
   return (
-    <GlassCard variant="default" hover>
-      <div className="p-6">
-        <h3 className="mb-4 text-[var(--text-xl)] font-semibold text-[var(--text-primary)]">
-          教育背景
-        </h3>
-        <div className="space-y-2">
-          <p className="text-[var(--text-lg)] font-medium text-[var(--text-primary)]">
-            {education.school}
-          </p>
-          <p className="text-[var(--text-base)] text-[var(--text-secondary)]">
-            {education.major}
-          </p>
-          <p className="text-[var(--text-sm)] text-[var(--text-tertiary)]">
-            {education.level}
-          </p>
-          <div className="flex flex-wrap gap-2 pt-2 text-[var(--text-xs)] text-[var(--text-tertiary)]">
-            <span>{education.year}</span>
-            <span>·</span>
-            <span>{education.location}</span>
-          </div>
-          {education.honors.length > 0 && (
-            <div className="flex flex-wrap gap-2 pt-3">
-              {education.honors.map((honor, i) => (
-                <Badge key={i}>{honor}</Badge>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    </GlassCard>
+    <article className="info-card">
+      <span className="card-icon">
+        <GraduationCap size={21} strokeWidth={1.6} aria-hidden="true" />
+      </span>
+      <h3>教育背景</h3>
+      <p className="school-name">{education.school}</p>
+      <p className="school-english">SOUTHERN UNIVERSITY OF SCIENCE AND TECHNOLOGY</p>
+      <p className="education-detail">
+        {education.major} · {education.level}
+      </p>
+      <p className="education-date">
+        {education.year} · {education.location}
+      </p>
+      {education.honors.map((honor) => (
+        <span className="honor" key={honor}>
+          <Award size={13} aria-hidden="true" />
+          {honor}
+        </span>
+      ))}
+    </article>
   )
 }

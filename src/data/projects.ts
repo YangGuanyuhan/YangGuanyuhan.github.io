@@ -4,6 +4,9 @@ export interface Project {
   subtitle: string
   type: string
   year: string
+  category: string
+  summary: string
+  metric: { value: string; label: string }
   highlights: string[]
   tags: string[]
 }
@@ -11,6 +14,10 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
+    category: 'COMPUTER VISION',
+    summary:
+      '对比传统与深度特征匹配方法，打通 C++ 与 ONNX Runtime 推理链路，探索精度与效率的平衡。',
+    metric: { value: '78.71%', label: '标准图像对 RANSAC 内点率' },
     title: 'OpenCV 深度特征匹配研究',
     subtitle: 'LightGlue & SuperPoint',
     type: '算法与系统 (C++/ONNX Runtime/PyTorch)',
@@ -25,6 +32,9 @@ export const projects: Project[] = [
   },
   {
     id: 2,
+    category: 'BACKEND ENGINEERING',
+    summary: '基于 Spring Boot 与 Java Stream，构建支持多维度统计与趋势分析的问答数据服务。',
+    metric: { value: '~10⁵', label: '条记录规模的数据分析' },
     title: 'StackOverflow 问答分析平台',
     subtitle: '课程项目',
     type: '后端服务 (Spring Boot / Java)',
@@ -39,6 +49,9 @@ export const projects: Project[] = [
   },
   {
     id: 3,
+    category: 'EDGE AI',
+    summary: '在 Jetson Nano 上部署人体姿态估计，结合 TensorRT 加速与手势映射，实现离线交互。',
+    metric: { value: '14–16 FPS', label: '端侧推理速度 · 原约 8 FPS' },
     title: '实时边缘AI 姿态估计交互系统',
     subtitle: '嵌入式系统/Edge AI',
     type: '硬件部署 (Jetson Nano / TensorRT)',

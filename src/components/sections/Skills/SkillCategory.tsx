@@ -1,27 +1,28 @@
-import GlassCard from '@/components/ui/GlassCard'
+import { Braces, Layers, Terminal, Network } from 'lucide-react'
 import Badge from '@/components/ui/Badge'
-import StaggerChildren from '@/effects/StaggerChildren'
 import type { SkillCategory as SkillCategoryType } from '@/data/skills'
-
-interface SkillCategoryProps {
+const icons = [Braces, Layers, Terminal, Network]
+export default function SkillCategory({
+  category,
+  index,
+}: {
   category: SkillCategoryType
-}
-
-export default function SkillCategory({ category }: SkillCategoryProps) {
+  index: number
+}) {
+  const Icon = icons[index % icons.length]
   return (
-    <GlassCard variant="default" hover>
-      <div className="p-6">
-        <h3 className="mb-4 text-[var(--text-lg)] font-semibold text-text-primary">
-          {category.title}
-        </h3>
-        <StaggerChildren className="flex flex-wrap gap-2">
-          {category.items.map((skill, i) => (
-            <Badge key={i} animate>
-              {skill}
-            </Badge>
+    <article className="skill-card">
+      <span className="card-icon">
+        <Icon size={20} strokeWidth={1.6} aria-hidden="true" />
+      </span>
+      <div className="skill-content">
+        <h3>{category.title}</h3>
+        <div className="tags">
+          {category.items.map((skill) => (
+            <Badge key={skill}>{skill}</Badge>
           ))}
-        </StaggerChildren>
+        </div>
       </div>
-    </GlassCard>
+    </article>
   )
 }

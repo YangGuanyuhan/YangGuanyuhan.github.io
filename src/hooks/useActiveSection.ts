@@ -1,39 +1,33 @@
-import { useState, useEffect } from 'react'
-
-const SECTION_IDS = ['hero', 'about', 'skills', 'projects', 'contact']
+import { useEffect, useState } from 'react'
+import { navigation } from '@/data/navigation'
 
 export function useActiveSection(): string {
   const [active, setActive] = useState('hero')
-
   useEffect(() => {
-    const observers: IntersectionObserver[] = []
-
-    SECTION_IDS.forEach((id) => {
-      const el = document.getElementById(id)
-      if (!el) return
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActive(id)
-            }
-          })
-        },
-        {
-          threshold: 0.3,
-          rootMargin: '-20% 0px -60% 0px',
-        }
-      )
-
-      observer.observe(el)
-      observers.push(observer)
-    })
-
+    let frame = 0
+    const update = () => {
+      frame = 0
+      const marker = Math.min(window.innerHeight * 0.3, 200)
+      let next = 'hero'
+      for (const { id } of navigation) {
+        const section = document.getElementById(id)
+        if (section && section.getBoundingClientRect().top <= marker) next = id
+      }
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4)
+        next = 'contact'
+      setActive(next)
+    }
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update)
+    }
+    schedule()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
     return () => {
-      observers.forEach((o) => o.disconnect())
+      cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
     }
   }, [])
-
   return active
 }

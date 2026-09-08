@@ -1,27 +1,22 @@
-import { motion } from 'framer-motion'
 import Section from '@/components/layout/Section'
 import SectionTitle from '@/components/layout/SectionTitle'
-import StaggerChildren from '@/effects/StaggerChildren'
-import { fadeInUp } from '@/lib/motion'
 import { skillCategories } from '@/data/skills'
 import SkillCategory from './SkillCategory'
 import Languages from './Languages'
-
 export default function Skills() {
   return (
     <Section id="skills">
       <SectionTitle
-        kicker="Skills"
-        title="技能栈"
-        description="持续学习，不断精进的技术能力矩阵。"
+        id="skills-title"
+        kicker="03 / MY TOOLKIT"
+        title="让好想法，有好工具。"
+        description="从底层原理到开发框架，在实践中不断拓展技术边界。"
       />
-      <StaggerChildren className="grid grid-cols-1 gap-4 tablet:grid-cols-2 desktop:gap-6">
-        {skillCategories.map((category, i) => (
-          <motion.div key={i} variants={fadeInUp}>
-            <SkillCategory category={category} />
-          </motion.div>
+      <div className="skills-grid">
+        {skillCategories.map((category, index) => (
+          <SkillCategory key={category.title} category={category} index={index} />
         ))}
-      </StaggerChildren>
+      </div>
       <Languages />
     </Section>
   )

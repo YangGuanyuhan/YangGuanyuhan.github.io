@@ -1,46 +1,38 @@
-import { motion } from 'framer-motion'
-import { staggerContainer, fadeInUp } from '@/lib/motion'
-import TiltCard from '@/effects/TiltCard'
+import { Compass } from 'lucide-react'
 import { profile } from '@/data/profile'
-
 export default function HobbyCards() {
   return (
-    <motion.div
-      className="relative flex gap-4 tablet:gap-6"
-      initial="hidden"
-      animate="visible"
-      variants={staggerContainer}
-    >
-      {profile.hobbies.map((hobby, i) => (
-        <motion.div
-          key={i}
-          variants={fadeInUp}
-          className={i === 0 ? 'flex-1' : 'flex-1 tablet:mt-12'}
+    <div className="hobby-scene">
+      <div className="scene-grid" aria-hidden="true" />
+      <span className="scene-topline" lang="en">
+        LIFE BEYOND THE SCREEN
+      </span>
+      {profile.hobbies.map((hobby, index) => (
+        <figure
+          className={`photo-card ${index === 0 ? 'photo-diving' : 'photo-ski'}`}
+          key={hobby.title}
         >
-          <TiltCard>
-            <div className="group relative overflow-hidden rounded-[var(--radius-xl)] border border-[var(--glass-border)] shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
-              <img
-                src={hobby.image}
-                alt={hobby.alt}
-                className="h-[280px] w-full object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 tablet:h-[360px]"
-              />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-              {/* Glass label */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 tablet:p-6">
-                <div className="inline-block rounded-lg border border-white/20 bg-white/15 px-3 py-1.5 shadow-lg backdrop-blur-md">
-                  <p className="font-mono text-[var(--text-xs)] uppercase tracking-widest text-white/70">
-                    {hobby.label}
-                  </p>
-                  <h3 className="mt-1 text-[var(--text-xl)] font-semibold text-white">
-                    {hobby.title}
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </TiltCard>
-        </motion.div>
+          <img
+            src={hobby.image}
+            srcSet={hobby.srcSet}
+            sizes={
+              index === 0 ? '(max-width: 767px) 60vw, 340px' : '(max-width: 767px) 44vw, 240px'
+            }
+            alt={hobby.alt}
+            width={960}
+            height={hobby.height}
+            decoding="async"
+          />
+          <figcaption className="photo-caption">
+            <span>{index === 0 ? '01 / OCEAN' : '02 / SNOW'}</span>
+            <strong>{hobby.title}</strong>
+          </figcaption>
+        </figure>
       ))}
-    </motion.div>
+      <div className="scene-label">
+        <Compass size={23} strokeWidth={1.5} aria-hidden="true" />
+        <span>保持好奇，继续探索。</span>
+      </div>
+    </div>
   )
 }

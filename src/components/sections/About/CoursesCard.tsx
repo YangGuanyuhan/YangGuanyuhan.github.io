@@ -1,23 +1,17 @@
-import GlassCard from '@/components/ui/GlassCard'
-import Badge from '@/components/ui/Badge'
+import { BookOpen } from 'lucide-react'
 import { courses } from '@/data/education'
-import StaggerChildren from '@/effects/StaggerChildren'
-
 export default function CoursesCard() {
   return (
-    <GlassCard variant="default" hover>
-      <div className="p-6">
-        <h3 className="mb-4 text-[var(--text-xl)] font-semibold text-text-primary">
-          核心课程
-        </h3>
-        <StaggerChildren className="flex flex-wrap gap-2">
-          {courses.map((course, i) => (
-            <Badge key={i} animate>
-              {course}
-            </Badge>
-          ))}
-        </StaggerChildren>
-      </div>
-    </GlassCard>
+    <article className="info-card">
+      <span className="card-icon">
+        <BookOpen size={20} strokeWidth={1.6} aria-hidden="true" />
+      </span>
+      <h3>知识的底座</h3>
+      <ul className="course-list">
+        {courses.map((course) => (
+          <li key={course}>{course}</li>
+        ))}
+      </ul>
+    </article>
   )
 }

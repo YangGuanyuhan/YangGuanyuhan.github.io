@@ -18,9 +18,4 @@ export const courses = [
   '计算机组成原理',
 ]
 
-export const intentions = [
-  '计算机视觉算法实习生',
-  '后端开发',
-]
-
-export const aboutDescription = '致力于在计算机视觉和后端开发领域的深耕，追求极致的代码质量与算法效率。'
+export const intentions = ['计算机视觉算法实习生', '后端开发']
