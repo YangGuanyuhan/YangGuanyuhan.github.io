@@ -45,7 +45,7 @@ export default function Header() {
           onClick={() => setMenuOpen(false)}
         >
           <span className="brand-mark" aria-hidden="true">
-            YGH
+            YGYH
           </span>
           <span>
             Guanyuhan Yang<span style={{ color: 'var(--accent-blue)' }}>.</span>

@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#2563eb"/>
-      <stop offset="1" stop-color="#7c3aed"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="18" fill="url(#g)"/>
-  <path fill="#fff" d="M17 16h8.2l6.8 12.6L38.8 16H47L32 45.8z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">YGYH · 杨官宇涵</title>
+  <rect width="64" height="64" rx="18" fill="#182437"/>
+  <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="square" stroke-linejoin="round">
+    <path d="m14 14 7 8 7-8m-7 8v7"/>
+    <path d="M50 16c-2-2-4-2-6-2-5 0-8 3-8 8s3 8 8 8c3 0 5-1 7-3v-5h-7"/>
+    <path d="m14 37 7 8 7-8m-7 8v7"/>
+    <path d="M37 37v15m14-15v15M37 44h14"/>
+  </g>
 </svg>

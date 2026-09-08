@@ -120,8 +120,9 @@ svg {
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 34px;
+  width: 40px;
   height: 34px;
+  flex-shrink: 0;
   background: var(--text-primary);
   color: #fff;
   border-radius: 10px;
