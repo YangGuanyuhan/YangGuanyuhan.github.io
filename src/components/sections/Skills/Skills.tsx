@@ -8,9 +8,9 @@ export default function Skills() {
     <Section id="skills">
       <SectionTitle
         id="skills-title"
-        kicker="03 / MY TOOLKIT"
-        title="让好想法，有好工具。"
-        description="从底层原理到开发框架，在实践中不断拓展技术边界。"
+        kicker="THE TOOLKIT"
+        title="理解原理，熟悉工具。"
+        description="在项目中使用，在实践中学习。"
       />
       <div className="skills-grid">
         {skillCategories.map((category, index) => (

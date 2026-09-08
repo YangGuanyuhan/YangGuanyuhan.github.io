@@ -94,11 +94,69 @@ export default function ProjectArtwork({ id, label }: { id: number; label: strin
               fontSize="8"
               fontFamily="monospace"
             >
-              SUPERPOINT → LIGHTGLUE
+              ALIKED → LIGHTGLUE → OPENCV
             </text>
           </>
         )}
         {id === 2 && (
+          <>
+            <path
+              d="M81 70 170 112 272 64M170 112 270 153M170 112 73 157M170 112 181 47"
+              stroke="currentColor"
+              strokeOpacity=".3"
+              strokeWidth="1.4"
+            />
+            {[
+              [81, 70],
+              [272, 64],
+              [270, 153],
+              [73, 157],
+              [181, 47],
+            ].map(([x, y], i) => (
+              <g key={i}>
+                <rect
+                  x={x - 17}
+                  y={y - 17}
+                  width="34"
+                  height="34"
+                  rx="9"
+                  fill="white"
+                  fillOpacity=".8"
+                  stroke="currentColor"
+                  strokeOpacity=".2"
+                />
+                <path
+                  d={`M${x - 7} ${y - 4}h14m-14 7h9`}
+                  stroke="currentColor"
+                  strokeOpacity=".6"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </g>
+            ))}
+            <circle
+              cx="170"
+              cy="112"
+              r="24"
+              fill="white"
+              stroke="currentColor"
+              strokeOpacity=".3"
+            />
+            <circle cx="170" cy="106" r="6" stroke="currentColor" strokeWidth="1.5" />
+            <path d="M159 123c0-10 22-10 22 0" stroke="currentColor" strokeWidth="1.5" />
+            <text
+              x="175"
+              y="190"
+              textAnchor="middle"
+              fill="currentColor"
+              fontSize="8"
+              fontFamily="monospace"
+            >
+              PAPERS → RELATIONS → DISCOVERY
+            </text>
+          </>
+        )}
+        {id === 4 && (
           <>
             <rect
               x="44"
@@ -198,7 +256,7 @@ export default function ProjectArtwork({ id, label }: { id: number; label: strin
                 cx={x}
                 cy={y}
                 r={i === 0 ? 9 : 3}
-                fill={i === 0 ? '#f1f0f9' : 'currentColor'}
+                fill={i === 0 ? '#f5f5f5' : 'currentColor'}
                 stroke="currentColor"
                 strokeWidth="1.8"
               />

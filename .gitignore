@@ -29,3 +29,6 @@ vite.config.d.ts
 # Local browser verification artifacts
 .playwright-cli/
 output/
+
+# Personal photo inbox: publish only metadata-free web derivatives.
+/images/

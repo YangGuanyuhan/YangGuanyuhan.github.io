@@ -17,5 +17,3 @@ export const courses = [
   '计算机高级程序设计',
   '计算机组成原理',
 ]
-
-export const intentions = ['计算机视觉算法实习生', '后端开发']

@@ -2,7 +2,7 @@
 
 [访问网站](https://yangguanyuhan.github.io/) · [部署状态](https://github.com/YangGuanyuhan/YangGuanyuhan.github.io/actions/workflows/deploy.yml)
 
-南方科技大学计算机科学与技术专业的个人作品集。包含项目成果、教育背景、技能与联系方式，支持桌面、平板和手机。
+南方科技大学计算机科学与技术专业的个人作品集。包含实习经历、可核验的开源成果、项目、教育背景与生活影像。使用黑白灰、磨砂玻璃与柔和光影，支持桌面、平板和手机。
 
 ## 本地开发
 
@@ -28,7 +28,7 @@ src/
   components/
     layout/           页面容器与章节标题
     navigation/       桌面与移动导航
-    sections/         Hero、Projects、About、Skills、Contact
+    sections/         首页、经历、项目、教育、技能、影像、联系
     ui/               按钮与标签
     Footer/           页脚
   data/               个人资料、项目、教育、技能、导航
@@ -36,7 +36,8 @@ src/
   styles/tokens.css   统一颜色、字体和布局变量
   index.css           组件样式与响应式规则
 public/               直接发布的图标、WebP 照片、SEO 文件
-assets/originals/     原始照片，不随网站发布
+assets/originals/     历史原图归档（在仓库中，不进入网站构建）
+images/              本地新增照片收件夹（Git 忽略，不公开原图）
 scripts/              可复现的照片压缩脚本
 docs/                 部署、维护说明和 GitHub 简介模板
 .github/workflows/    网站发布与贡献蛇动画
@@ -46,12 +47,13 @@ docs/                 部署、维护说明和 GitHub 简介模板
 
 - 个人信息与照片：`src/data/profile.ts`
 - 项目描述、成果与细节：`src/data/projects.ts`
+- 实习经历：`src/components/sections/Experience/Experience.tsx`
 - 教育与课程：`src/data/education.ts`
 - 技术与语言能力：`src/data/skills.ts`
 - 颜色和版心：`src/styles/tokens.css`
 - 布局与响应式：`src/index.css`
 
-照片原图放在 `assets/originals/`，运行 `npm run images` 生成 480px 和 960px 的 WebP 网页副本。原图不会修改。
+新增原图保留在本地 `images/`，在 `scripts/optimize-images.mjs` 中登记，再运行 `npm run images` 生成 480px 和 960px 的 WebP 网页副本。原图不会修改，发布副本不保留 EXIF 等元数据。新克隆仓库不包含本地原图，可直接使用已提交的 WebP 构建；只有重新生成照片时才需要补齐原图。
 
 ## 部署与维护
 
@@ -59,6 +61,7 @@ docs/                 部署、维护说明和 GitHub 简介模板
 
 - [部署与故障排查](docs/deployment.md)
 - [维护与视觉验收](docs/maintenance.md)
+- [公开内容与隐私边界](docs/public-content.md)
 - [GitHub 个人简介模板](docs/profile-readme.md)
 
 网站与 Snake Animation 是独立工作流。动画只更新 `output` 分支的 SVG，不参与网站构建。

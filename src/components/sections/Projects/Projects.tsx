@@ -10,9 +10,9 @@ export default function Projects() {
     <Section id="projects">
       <SectionTitle
         id="projects-title"
-        kicker="01 / SELECTED WORK"
-        title="把想法，写成作品。"
-        description="从特征匹配到端侧推理，连接算法研究与工程实践。"
+        kicker="02 / SELECTED WORK"
+        title="从想法，到可运行的实现。"
+        description="开源贡献、视觉系统与后端工程。每一份作品，都有具体的问题要解决。"
         action={
           <a
             className="text-link"
@@ -30,7 +30,8 @@ export default function Projects() {
         ))}
       </div>
       <p className="project-footnote">
-        项目成果来自各自测试环境，具体条件见「技术细节」。上方图形为技术概念示意。
+        开源状态核验于
+        2026.09.08；实验指标限于各项目测试环境。图形为技术概念示意，详情与公开来源可展开查看。
       </p>
     </Section>
   )

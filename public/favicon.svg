@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
   <title id="title">YGYH · 杨官宇涵</title>
-  <rect width="64" height="64" rx="18" fill="#182437"/>
+  <rect width="64" height="64" rx="18" fill="#1d1d1f"/>
   <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="square" stroke-linejoin="round">
     <path d="m14 14 7 8 7-8m-7 8v7"/>
     <path d="M50 16c-2-2-4-2-6-2-5 0-8 3-8 8s3 8 8 8c3 0 5-1 7-3v-5h-7"/>

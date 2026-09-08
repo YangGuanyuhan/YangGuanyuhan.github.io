@@ -10,11 +10,11 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: '框架与库',
-    items: ['Spring Boot', 'PyTorch', 'OpenCV', 'NumPy', 'JUnit', 'TensorRT', 'ONNX Runtime'],
+    items: ['Spring Boot', 'PyTorch', 'OpenCV', 'Node.js', 'TensorRT', 'ONNX Runtime'],
   },
   {
     title: '工具与环境',
-    items: ['Git/GitHub', 'Linux (Shell)', 'Gradle/Maven', 'LaTeX', 'Markdown', 'Docker'],
+    items: ['Git/GitHub', 'Linux', 'PostgreSQL', 'JUnit', 'Gradle/Maven', 'Docker'],
   },
   {
     title: '理论基础',

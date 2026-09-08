@@ -1,23 +1,20 @@
-import { ArrowUpRight, Briefcase } from 'lucide-react'
-import { intentions } from '@/data/education'
+import { ScanLine } from 'lucide-react'
 export default function CareerCard() {
   return (
     <article className="info-card">
       <span className="card-icon">
-        <Briefcase size={19} strokeWidth={1.6} aria-hidden="true" />
+        <ScanLine size={21} strokeWidth={1.5} aria-hidden="true" />
       </span>
-      <h3>正在寻找的方向</h3>
-      <ul className="career-list">
-        {intentions.map((intention) => (
-          <li key={intention}>
-            <ArrowUpRight size={14} aria-hidden="true" />
-            {intention}
-          </li>
-        ))}
-      </ul>
+      <h3>正在深入的方向</h3>
+      <p className="school-name">视觉理解与高效推理</p>
       <p className="card-description">
-        关注模型如何高效推理，也关注服务如何可靠运行。希望在真实的问题中，持续打磨代码质量与算法效率。
+        关注人体运动表征、步态识别与复杂场景下的鲁棒性，希望从可复现的基线出发，连接视觉研究和实际部署。
       </p>
+      <div className="interest-tags">
+        <span>计算机视觉</span>
+        <span>人体运动表征</span>
+        <span>边缘智能</span>
+      </div>
     </article>
   )
 }

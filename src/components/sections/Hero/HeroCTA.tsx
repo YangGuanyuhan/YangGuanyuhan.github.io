@@ -14,7 +14,7 @@ export default function HeroCTA() {
       </div>
       <p className="hero-note">
         <MapPin size={13} aria-hidden="true" /> 中国 · 深圳 <span aria-hidden="true">/</span>{' '}
-        计算机视觉算法与后端开发实习
+        开源贡献者 · 持续探索中
       </p>
     </>
   )

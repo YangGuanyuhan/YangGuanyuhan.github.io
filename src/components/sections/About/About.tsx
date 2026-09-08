@@ -8,9 +8,9 @@ export default function About() {
     <Section id="about" className="about-section">
       <SectionTitle
         id="about-title"
-        kicker="02 / A LITTLE ABOUT ME"
-        title="认真构建，也自由探索。"
-        description="扎实的计算机基础，是将好奇心转化为创造力的起点。"
+        kicker="03 / ABOUT ME"
+        title="保持深入，也保持开放。"
+        description="在南方科技大学学习计算机科学，沿着视觉理解与可靠系统的方向继续探索。"
       />
       <div className="about-grid">
         <EducationCard />

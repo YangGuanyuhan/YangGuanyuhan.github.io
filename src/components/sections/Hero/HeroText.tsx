@@ -4,7 +4,7 @@ export default function HeroText() {
     <>
       <p className="hero-intro">
         <span className="status-dot" aria-hidden="true" />
-        你好，我是 Guanyuhan
+        COMPUTER SCIENCE · SUSTECH
       </p>
       <h1 id="hero-title">{profile.name}</h1>
       <p className="hero-tagline" lang="en">
@@ -13,9 +13,9 @@ export default function HeroText() {
       <p className="hero-description">
         <strong>南方科技大学 · 计算机科学与技术 · 2027 届</strong>
         <br />
-        探索计算机视觉与后端工程，把算法变成可靠的系统。
+        关注计算机视觉、开源软件与 AI 应用。
         <br />
-        在代码之外，也在山海之间，保持好奇。
+        认真打磨每一次实现，也为生活保留好奇。
       </p>
     </>
   )

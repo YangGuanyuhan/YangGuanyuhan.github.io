@@ -1,11 +1,11 @@
-import { Plus } from 'lucide-react'
+import { ArrowUpRight, Plus } from 'lucide-react'
 import Badge from '@/components/ui/Badge'
 import type { Project } from '@/data/projects'
 import ProjectArtwork from './ProjectArtwork'
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="project-card">
+    <article className={`project-card ${project.id === 1 ? 'project-featured' : ''}`}>
       <ProjectArtwork id={project.id} label={project.category} />
       <div className="project-content">
         <div className="project-meta">
@@ -32,12 +32,32 @@ export default function ProjectCard({ project }: { project: Project }) {
               <li key={highlight}>{highlight}</li>
             ))}
           </ul>
+          {project.links && (
+            <div className="project-sources">
+              {project.links.map((link) => (
+                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                  <ArrowUpRight size={13} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          )}
           <div className="tags" style={{ marginTop: 16 }}>
             {project.tags.slice(3).map((tag) => (
               <Badge key={tag}>{tag}</Badge>
             ))}
           </div>
         </details>
+        {project.id === 1 && (
+          <a
+            className="project-source-link"
+            href="https://github.com/opencv/opencv/pull/28986"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            查看已合并 PR #28986 <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+        )}
       </div>
     </article>
   )

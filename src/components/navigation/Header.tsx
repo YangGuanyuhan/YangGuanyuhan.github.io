@@ -47,9 +47,7 @@ export default function Header() {
           <span className="brand-mark" aria-hidden="true">
             YGYH
           </span>
-          <span>
-            Guanyuhan Yang<span style={{ color: 'var(--accent-blue)' }}>.</span>
-          </span>
+          <span>Guanyuhan Yang.</span>
         </a>
         <div className="desktop-nav">
           <NavLinks />

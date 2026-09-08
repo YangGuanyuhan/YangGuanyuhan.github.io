@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowUpRight, Check, Copy, Github, Mail, Phone } from 'lucide-react'
+import { ArrowUpRight, Check, Copy, Github, Mail } from 'lucide-react'
 import Container from '@/components/layout/Container'
 import Button from '@/components/ui/Button'
 import { profile } from '@/data/profile'
@@ -23,7 +23,7 @@ export default function Contact() {
         <div className="contact-panel">
           <div className="contact-top">
             <div>
-              <p className="eyebrow">04 / LET’S CONNECT</p>
+              <p className="eyebrow">05 / LET’S CONNECT</p>
               <h2 id="contact-title">
                 下一件有意思的事，
                 <wbr />
@@ -39,10 +39,6 @@ export default function Contact() {
             <a className="contact-link" href={`mailto:${profile.contact.email}`}>
               <Mail size={16} aria-hidden="true" />
               <span>{profile.contact.email}</span>
-            </a>
-            <a className="contact-link" href={`tel:${profile.contact.phone}`}>
-              <Phone size={15} aria-hidden="true" />
-              <span>+86 183 8731 1225</span>
             </a>
             <a
               className="contact-link"

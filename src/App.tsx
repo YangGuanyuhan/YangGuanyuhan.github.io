@@ -5,6 +5,8 @@ import Skills from '@/components/sections/Skills/Skills'
 import Projects from '@/components/sections/Projects/Projects'
 import Contact from '@/components/sections/Contact/Contact'
 import Footer from '@/components/Footer/Footer'
+import Experience from '@/components/sections/Experience/Experience'
+import Gallery from '@/components/sections/Gallery/Gallery'
 
 export default function App() {
   return (
@@ -15,9 +17,11 @@ export default function App() {
       <Header />
       <main id="main" tabIndex={-1}>
         <Hero />
+        <Experience />
         <Projects />
         <About />
         <Skills />
+        <Gallery />
         <Contact />
       </main>
       <Footer />
